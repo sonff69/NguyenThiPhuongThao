@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pthao. — Bloom: Hành Trình Học Tập Số</title>
+    <title>pthao. — Bloom: Nhật Ký Số Tương Tác</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Instrument Serif & Manrope -->
@@ -73,7 +73,7 @@
 
         /* Nền ginkgo back.jpg hiển thị sắc nét, không bị làm mờ */
         .ginkgo-bg-crisp {
-            background-image: linear-gradient(to bottom, rgba(250, 248, 242, 0.4) 0%, rgba(250, 248, 242, 0.75) 100%), url('back.jpg');
+            background-image: linear-gradient(to bottom, rgba(250, 248, 242, 0.35) 0%, rgba(250, 248, 242, 0.7) 100%), url('back.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -85,35 +85,13 @@
             background-position: center;
         }
 
-        /* Thẻ nội dung bán trong suốt nhưng giữ nguyên độ sắc nét cho ảnh nền phía sau */
+        /* Thẻ sổ tay bán trong suốt, hoàn toàn không bị nhòe hay làm mờ ảnh nền */
         .journal-card {
             background-color: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(42, 54, 41, 0.12);
+            border: 1px solid rgba(42, 54, 41, 0.15);
             box-shadow: 0 8px 24px rgba(42, 54, 41, 0.05);
             border-radius: 20px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .journal-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 36px rgba(42, 54, 41, 0.08);
-            border-color: rgba(217, 167, 82, 0.4);
-        }
-
-        /* Nút cuộn xuống dẹt màu sáng */
-        .btn-scroll-down {
-            background-color: #e5e7eb;
-            color: #111827;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-        }
-
-        .btn-scroll-down:hover {
-            background-color: #ffffff;
-            transform: translateY(2px);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
         /* Active Leaf Node on Timeline */
@@ -123,6 +101,14 @@
             border-color: #2A3629 !important;
             transform: scale(1.2) rotate(15deg);
             box-shadow: 0 0 15px rgba(217, 167, 82, 0.6);
+        }
+
+        /* Explorer simulator virtual windows */
+        .explorer-window {
+            background-color: #ffffff;
+            border: 1px solid rgba(42, 54, 41, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .reveal {
@@ -159,7 +145,7 @@
                 <a href="#trang-chu" class="hover:text-bloom-dark transition-colors">Trang chủ</a>
                 <a href="#gioi-thieu" class="hover:text-bloom-dark transition-colors">Về bản thân</a>
                 <a href="#hanh-trinh" class="hover:text-bloom-dark transition-colors">Hành trình số</a>
-                <a href="#tong-ket" class="hover:text-bloom-dark transition-colors">Nhật ký tổng kết</a>
+                <a href="#tong-ket" class="hover:text-bloom-dark transition-colors">Tổng kết chiêm nghiệm</a>
             </div>
 
             <!-- Chú thích thông tin sinh viên góc phải thanh menu -->
@@ -181,11 +167,11 @@
                 </div>
 
                 <div class="space-y-4">
-                    <h1 class="font-serif italic text-7xl md:text-8xl leading-none text-bloom-dark">
+                    <h1 class="font-serif italic text-7xl md:text-8xl leading-none text-bloom-dark uppercase display-bold">
                         Bloom.
                     </h1>
                     <p class="text-xl md:text-2xl text-bloom-dark/85 font-medium leading-relaxed max-w-lg">
-                        Ghi chép hành trình tự học, rèn luyện kỹ năng số và tương tác chiều sâu cùng công nghệ của Phương Thảo tại ULIS.
+                        Ghi chép hành trình học tập, rèn luyện kỹ năng số và tương tác chiều sâu cùng trí tuệ nhân tạo của Phương Thảo tại ULIS.
                     </p>
                 </div>
 
@@ -198,7 +184,7 @@
                 <!-- Nút cuộn xuống mộc mạc -->
                 <div class="pt-2">
                     <a href="#gioi-thieu" class="btn-scroll-down inline-flex items-center gap-3 px-6 py-3.5 rounded-full text-xs font-bold uppercase shadow-md">
-                        Tìm hiểu về mình
+                        Bắt đầu khám phá
                         <i class="fa-solid fa-angles-down text-[10px]"></i>
                     </a>
                 </div>
@@ -221,7 +207,7 @@
     <section id="gioi-thieu" class="py-24 relative z-10 max-w-7xl mx-auto px-6 reveal">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-[11px] uppercase font-extrabold tracking-widest text-pink-500 mb-2">VỀ BẢN THÂN</h2>
-            <h3 class="text-3xl md:text-5xl font-black display-bold tracking-tight text-white uppercase">Chân dung sinh viên ngôn ngữ học</h3>
+            <h3 class="text-3xl md:text-5xl font-black display-bold tracking-tight text-bloom-dark uppercase">Chân dung sinh viên ngôn ngữ học</h3>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -233,7 +219,7 @@
                     </div>
                     <h4 class="text-lg font-bold uppercase tracking-wider text-bloom-dark">Sở thích & Mục tiêu học tập</h4>
                     <p class="text-gray-500 text-xs leading-relaxed font-semibold">
-                        Mình là một người thích khám phá chiều sâu văn hóa và ngôn ngữ Anh. Với mình, học ngoại ngữ không chỉ là ghi nhớ từ vựng mà là hiểu sâu sắc cách người bản xứ tư duy, giao tiếp và phản chiếu thế giới. Mục tiêu học tập lớn nhất của mình là làm chủ các phương pháp nghiên cứu hiện đại, kết hợp khéo léo tri thức ngôn ngữ học với sức mạnh công nghệ số để tối ưu hóa năng lực học tập hàng ngày.
+                        Mình là một người thích khám phá chiều sâu văn khoa học và ngôn ngữ Anh. Với mình, học ngoại ngữ không đơn thuần chỉ là việc ghi nhớ cấu trúc từ vựng bồi mà là hiểu sâu sắc cách người bản xứ tư duy, giao tiếp và biểu đạt thế giới. Mục tiêu học tập lớn nhất của mình là làm chủ các phương pháp nghiên cứu hiện đại, kết hợp khéo léo tri thức ngôn ngữ học với sức mạnh công nghệ số để tối ưu hóa năng lực học tập hàng ngày.
                     </p>
                 </div>
                 <div class="border-t border-bloom-dark/5 pt-4 mt-6">
@@ -249,7 +235,7 @@
                     </div>
                     <h4 class="text-lg font-bold uppercase tracking-wider text-bloom-dark">Định hướng cá nhân</h4>
                     <p class="text-gray-500 text-xs leading-relaxed font-semibold">
-                        Trong tương lai, mình muốn trở thành một chuyên gia ngôn ngữ học ứng dụng hoặc một biên dịch viên chuyên nghiệp có tư duy số sắc bén. Mình tin rằng thời đại mới đòi hỏi người học ngoại ngữ phải vươn xa hơn giới hạn truyền thống, có khả năng phân tích dữ liệu lớn và cộng tác hiệu quả trong không gian số. Học phần Công nghệ số chính là viên gạch đầu tiên giúp mình xây dựng định hướng bền vững đó.
+                        Trong tương lai, mình muốn trở thành một chuyên gia ngôn ngữ học ứng dụng hoặc một biên dịch viên có tư duy số sắc bén. Mình tin rằng thời đại mới đòi hỏi người học ngoại ngữ phải vươn xa hơn giới hạn truyền thống, có khả năng phân tích dữ liệu lớn và cộng tác hiệu quả trong không gian số. Học phần Công nghệ số chính là viên gạch đầu tiên giúp mình xây dựng định hướng bền vững đó.
                     </p>
                 </div>
                 <div class="border-t border-bloom-dark/5 pt-4 mt-6">
@@ -279,7 +265,7 @@
     <section class="py-12 relative z-10 max-w-7xl mx-auto px-6 reveal">
         <div class="glass-card rounded-3xl p-8 md:p-12 text-center bg-gradient-to-r from-purple-950/20 to-pink-950/20 border border-white/5">
             <div class="max-w-2xl mx-auto space-y-6">
-                <i class="fab fa-google-drive text-emerald-600 text-4xl"></i>
+                <i class="fab fa-google-drive text-emerald-400 text-4xl"></i>
                 <h3 class="text-2xl md:text-3xl font-black display-bold text-white uppercase tracking-tight">KHO LƯU TRỮ HỌC THUẬT GOOGLE DRIVE</h3>
                 <p class="text-gray-400 text-xs md:text-sm font-semibold">
                     Để kiểm tra trực tiếp toàn bộ các tệp tin báo cáo thực tế, dữ liệu bài làm và hình ảnh minh họa chất lượng cao của cả 6 bài tập lớn mà mình đã tự tay hoàn thiện, quý thầy cô và các bạn có thể nhấp vào liên kết Drive học tập dưới đây.
@@ -300,7 +286,7 @@
     <section id="hanh-trinh" class="py-24 relative z-10 max-w-7xl mx-auto px-6 reveal">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="font-serif italic text-4xl text-bloom-dark">Hành trình 6 đoá hoa số</h2>
-            <p class="text-xs text-bloom-gold uppercase font-bold tracking-widest mt-2">Bấm vào từng chiếc lá dây leo bên dưới để khám phá chi tiết Mục tiêu, Quá trình, Kết quả và Bài học của từng bài tập</p>
+            <p class="text-xs text-bloom-gold uppercase font-bold tracking-widest mt-2">Bấm vào từng chiếc lá dây leo bên dưới để kích hoạt bản đồ thực hành tương tác chuyên sâu</p>
         </div>
 
         <!-- Botanical Branch Progress Line -->
@@ -332,29 +318,32 @@
             </div>
         </div>
 
-        <!-- KHU VỰC TRÌNH DIỄN ĐỒ HỌA TƯƠNG TÁC VÀ NỘI DUNG CHI TIẾT 4 PHẦN (OBJECTIVE - PROCESS - OUTCOME - REFLECTION) -->
+        <!-- KHU VỰC TRÌNH DIỄN ĐỒ HỌA TƯƠNG TÁC CAO CẤP -->
         <div class="max-w-5xl mx-auto" id="interactive-display-container">
             
-            <!-- BÀI 1: Explorer simulator giả lập 12 bước trực quan -->
+            <!-- BÀI 1: Explorer simulator giả lập 12 bước trực quan dạng Windows 11 -->
             <div id="project-card-1" class="project-card-view journal-card p-6 md:p-8 space-y-6">
                 <div class="flex items-center justify-between border-b border-bloom-dark/10 pb-4">
                     <h3 class="font-serif italic text-3xl text-bloom-dark">Bài tập 1 — Giả lập hệ thống tệp tin Windows 11</h3>
                     <span class="px-3 py-1 bg-bloom-sage rounded-full text-xs font-bold text-bloom-dark uppercase tracking-widest">SEED</span>
                 </div>
 
-                <!-- Đầy đủ 4 phần chi tiết theo yêu cầu đề bài -->
+                <!-- Đầy đủ 4 phần chi tiết văn phong tự nhiên -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-500 leading-relaxed font-semibold">
                     <div class="space-y-2">
-                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu bài học (Objective)</h4>
-                        <p>Thực hành làm quen một cách có bài bản với hệ thống quản lý tệp tin và cấu trúc thư mục của hệ điều hành Windows. Qua bài này, mình hướng tới xây dựng một thói quen tổ chức không gian số khoa học, gọn gàng, tạo lập nền móng lưu trữ tài liệu cá nhân vững chắc xuyên suốt chặng đường học tập đại học lâu dài.</p>
+                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu học tập (Objective)</h4>
+                        <p>Xây dựng tư duy quản lý dữ liệu số khoa học ngay từ những ngày đầu bước chân vào giảng đường đại học. Với đặc thù ngành học Ngôn ngữ Anh đòi hỏi lưu trữ rất nhiều tài liệu tự học, bài nghiên cứu và các bài luận dài qua các học kỳ, việc nắm chắc cách tổ chức tệp tin sẽ giúp mình tiết kiệm tối đa thời gian tìm kiếm thông tin và giảm thiểu các rủi ro thất lạc tài liệu quan trọng.</p>
                     </div>
                     <div class="space-y-2">
                         <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">✨ Kết quả đạt được (Outcome)</h4>
-                        <p>Tự mình xây dựng hoàn thiện một cây thư mục chuẩn hóa mang tên cá nhân, biết cách đổi tên tệp tin, di chuyển, phân loại sâu các tài liệu vào thư mục con phù hợp. Đồng thời làm quen với việc xử lý thùng rác ảo và phục hồi dữ liệu ban đầu an toàn, ngăn nắp.</p>
+                        <p>Một cây thư mục học tập mẫu mực, được tổ chức cực kỳ logic, mạch lạc mang tên cá nhân không dấu. Các tệp tin quan trọng được bảo vệ và sắp xếp gọn gàng trong các thư mục con phân cấp rõ ràng, sẵn sàng cho mọi tác vụ tra cứu học tập sau này.</p>
                     </div>
                 </div>
+                
+                <p class="text-xs leading-relaxed text-bloom-dark/70 italic">
+                    Đây là một mô phỏng tương tác của File Explorer. Hãy bấm lần lượt các nút bước thực hành bên phải để chứng kiến hệ thống tệp tin bên trái tự động thay đổi theo thời gian thực!
+                </p>
 
-                <!-- Giả lập Explorer và Trình điều khiển -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
                     <!-- Bên trái: Màn hình giả lập Explorer -->
                     <div class="lg:col-span-7 bg-[#f3f3f3] text-gray-800 rounded-lg border border-gray-300 shadow-inner p-4 text-xs font-sans">
@@ -431,16 +420,15 @@
                 <!-- Bổ sung chi tiết 4 phần -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-500 leading-relaxed font-semibold">
                     <div class="space-y-2">
-                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu bài học (Objective)</h4>
-                        <p>Rèn luyện năng lực nghiên cứu độc lập và phát triển tư duy phản biện sắc bén trước biển thông tin số. Học cách phân loại, đánh giá độ tin cậy của 10 nguồn tài liệu khoa học uy tín liên quan đến việc ứng dụng AI trong ngành Ngôn ngữ Anh để làm nền móng tri thức an toàn.</p>
+                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu học tập (Objective)</h4>
+                        <p>Rèn luyện tư duy phản biện sắc bén và học hỏi phương pháp đánh giá mức độ tin cậy của thông tin trước khi ứng dụng vào việc học tập và nghiên cứu khoa học. Trong thời đại số bùng nổ thông tin, việc nhận biết đâu là tri thức khoa học chính thống và đâu là các nguồn tin chưa kiểm chứng là kỹ năng sinh tồn thiết yếu đối với mỗi sinh viên.</p>
                     </div>
                     <div class="space-y-2">
                         <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">✨ Kết quả đạt được (Outcome)</h4>
-                        <p>Xây dựng thành công danh mục 10 tài liệu học thuật có uy tín cao nhất (Mức 4), bao gồm các báo cáo vĩ mô của UNESCO, Stanford và các bài báo khoa học xuất sắc thuộc cơ sở dữ liệu lớn của Elsevier, Oxford được trình bày trực quan chuẩn xác theo hệ thống trích dẫn Harvard.</p>
+                        <p>Danh mục 10 tài liệu học thuật có uy tín cao nhất (Mức 4), bao gồm các báo cáo vĩ mô của UNESCO, Stanford và các bài báo khoa học xuất sắc thuộc cơ sở dữ liệu lớn của Elsevier, Oxford được trình bày trực quan chuẩn xác theo hệ thống trích dẫn Harvard.</p>
                     </div>
                 </div>
 
-                <!-- Radar đo chất lượng nguồn tương tác -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2 text-xs">
                     <!-- Bên trái: Danh sách các bài viết khoa học tiêu biểu -->
                     <div class="lg:col-span-5 space-y-2 max-h-[300px] overflow-y-auto pr-2">
@@ -531,12 +519,12 @@
                 <!-- Bổ sung chi tiết 4 phần -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-500 leading-relaxed font-semibold">
                     <div class="space-y-2">
-                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu bài học (Objective)</h4>
+                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu học tập (Objective)</h4>
                         <p>Thành thạo kỹ nghệ thiết kế câu lệnh (Prompt Engineering) để làm việc và khai thác tri thức hiệu quả cùng AI tạo sinh. Đồng thời, học cách mô tả và đơn giản hóa các khái niệm kỹ thuật toán học phức tạp cho người khác dễ hiểu.</p>
                     </div>
                     <div class="space-y-2">
                         <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">✨ Kết quả đạt được (Outcome)</h4>
-                        <p>Thiết lập thành công bộ ma trận so sánh 3 cấp độ câu lệnh từ thô sơ, cải tiến đến nâng cao nhập vai chuyên sâu, chứng minh sức mạnh của phương pháp hướng dẫn từng bước (Chain-of-Thought) trong việc cải thiện đáng kể độ chính xác của AI.</p>
+                        <p>Bộ ma trận so sánh 3 cấp độ câu lệnh từ thô sơ, cải tiến đến nâng cao nhập vai chuyên sâu, chứng minh sức mạnh của phương pháp hướng dẫn từng bước (Chain-of-Thought) trong việc cải thiện đáng kể độ chính xác của AI.</p>
                     </div>
                 </div>
 
@@ -607,12 +595,12 @@
                 <!-- Bổ sung chi tiết 4 phần -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-500 leading-relaxed font-semibold">
                     <div class="space-y-2">
-                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu bài học (Objective)</h4>
+                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu học tập (Objective)</h4>
                         <p>Nâng cao năng lực cộng tác trực tuyến và làm việc tập thể từ xa hiệu quả. Học cách đồng bộ hóa tài liệu, quản trị tiến độ công việc minh bạch giữa các thành viên trên nền tảng đám mây.</p>
                     </div>
                     <div class="space-y-2">
                         <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">✨ Kết quả đạt được (Outcome)</h4>
-                        <p>Phối hợp cùng nhóm hoàn thành xuất sắc dự án thuyết trình "AI trong đời sống". Ứng dụng thành thạo chuỗi hệ thống công cụ đám mây bao gồm Trello, Google Docs, Drive và Discord để điều phối nhịp nhàng các tác vụ đúng thời hạn.</p>
+                        <p>Phối hợp cùng nhóm hoàn thành dự án thuyết trình "AI trong đời sống". Ứng dụng thành thạo chuỗi hệ thống công cụ đám mây bao gồm Trello, Google Docs, Drive và Discord để điều phối nhịp nhàng các tác vụ đúng thời hạn.</p>
                     </div>
                 </div>
 
@@ -674,12 +662,12 @@
                 <!-- Bổ sung chi tiết 4 phần -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-500 leading-relaxed font-semibold">
                     <div class="space-y-2">
-                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu bài học (Objective)</h4>
+                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu học tập (Objective)</h4>
                         <p>Trực quan hóa và nghệ thuật hóa thông tin số. Học cách phối hợp sức mạnh của đa dạng các công cụ AI khác nhau để tạo nên một sản phẩm Infographic hoàn mỹ cả về nội dung khoa học lẫn hình thức mỹ thuật.</p>
                     </div>
                     <div class="space-y-2">
                         <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">✨ Kết quả đạt được (Outcome)</h4>
-                        <p>Kiến tạo thành công bức tranh Infographic "Ứng dụng AI tạo sinh trong học tập đại học" rực rỡ, cân đối, thể hiện trực quan các luận điểm khoa học thông qua biểu tượng đồ hoạ phối sắc tím nhẹ nhàng.</p>
+                        <p>Khởi tạo thành công bức tranh Infographic "Ứng dụng AI tạo sinh trong học tập đại học" rực rỡ, cân đối, thể hiện trực quan các luận điểm khoa học thông qua biểu tượng đồ hoạ phối sắc tím nhẹ nhàng.</p>
                     </div>
                 </div>
 
@@ -741,7 +729,7 @@
                 <!-- Bổ sung chi tiết 4 phần -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-gray-500 leading-relaxed font-semibold">
                     <div class="space-y-2">
-                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu bài học (Objective)</h4>
+                        <h4 class="text-sm font-bold text-bloom-dark uppercase tracking-wider">🎯 Mục tiêu học tập (Objective)</h4>
                         <p>Nâng cao ý thức tự chủ và nhận thức sâu sắc về sự liêm chính học đường khi ứng dụng công nghệ số. Học cách xây dựng ranh giới an toàn, minh bạch để bảo vệ tư duy độc lập cá nhân.</p>
                     </div>
                     <div class="space-y-2">
@@ -775,7 +763,7 @@
                         <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 space-y-1">
                             <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest block">Mô tả chi tiết cách dùng hợp lý:</span>
                             <p class="text-xs text-bloom-dark leading-relaxed font-semibold" id="eth-explain-text">
-                                Bạn nhờ AI tìm kiếm gợi ý các luận điểm, chỉnh sửa cấu trúc ngữ pháp lỗi chính tả nhưng tự mình chấp bút viết lại toàn bộ nội dung.
+                                Bạn nhờ AI tìm kiếm gợi ý các luận điểm, chỉnh sửa cấu trúc ngữ pháp lỗi chính tả nhưng tự mình viết lại toàn bộ nội dung.
                             </p>
                         </div>
 
@@ -799,7 +787,7 @@
     <section id="tong-ket" class="py-24 relative z-10 max-w-7xl mx-auto px-6 reveal">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-[11px] uppercase font-extrabold tracking-widest text-pink-500 mb-2">NHẬT KÝ CHIÊM NGHIỆM</h2>
-            <h3 class="text-3xl md:text-5xl font-black display-bold tracking-tight text-white uppercase">Tổng Kết Hành Trình Rèn Luyện</h3>
+            <h3 class="text-3xl md:text-5xl font-black display-bold tracking-tight text-bloom-dark uppercase">Tổng Kết Hành Trình Rèn Luyện</h3>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -844,7 +832,7 @@
                     </div>
                     <h4 class="text-lg font-bold uppercase tracking-wider text-bloom-dark">3. Những Kỹ năng & Tri thức học được</h4>
                     <p class="text-gray-500 text-xs leading-relaxed font-semibold">
-                        Trải qua 6 bài tập rèn luyện sâu sắc, mình đã tích luỹ được khối tài sản tri thức số vô cùng quý báu. Từ kỹ năng cứng như tổ chức cây thư mục chuẩn hoá, lọc nguồn học thuật định dạng Harvard, làm chủ nghệ thuật đặt câu lệnh Prompt chuyên nghiệp, đến phối hợp nhuần nhuyễn bộ ba công cụ sáng tạo nội dung ChatGPT - DALL-E - Canva. Quan trọng hơn cả là sự thăng tiến của các kỹ năng mềm: tư duy phản biện đa chiều, kỹ năng tự nghiên cứu, làm việc nhóm từ xa và ý thức trách nhiệm liêm chính tuyệt đối trong học đường.
+                        Trải qua 6 bài tập rèn luyện sâu sắc, mình đã tích luỹ được khối tài sản tri thức số vô cùng quý báu. Từ kỹ năng cứng như tổ chức cây thư mục chuẩn hoá, lọc nguồn học thuật định dạng Harvard, làm chủ nghệ thuật đặt câu lệnh Prompt chuyên nghiệp, đến phối hợp nhuần nhuyễn bộ ba công cụ sáng tạo nội dung ChatGPT - DALL-E - Canva. Quan trọng hơn cả là sự thăng tiến của các kỹ năng mềm: tư duy phản biện đa chiều, kỹ năng tự nghiên cứu, làm việc nhóm trực tuyến từ xa và ý thức trách nhiệm liêm chính tuyệt đối trong học đường.
                     </p>
                 </div>
                 <div class="border-t border-bloom-dark/5 pt-4 mt-6">
