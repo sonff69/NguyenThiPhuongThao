@@ -267,7 +267,7 @@
             <div class="max-w-2xl mx-auto space-y-6">
                 <i class="fab fa-google-drive text-emerald-400 text-4xl"></i>
                 <h3 class="text-2xl md:text-3xl font-black display-bold text-bloom-dark uppercase tracking-tight">KHO LƯU TRỮ HỌC THUẬT GOOGLE DRIVE</h3>
-                <p class="text-gray-500 text-xs md:text-sm font-semibold">
+                <p class="text-gray-400 text-xs md:text-sm font-semibold">
                     Để kiểm tra trực tiếp toàn bộ các tệp tin báo cáo thực tế, dữ liệu bài làm và hình ảnh minh họa chất lượng cao của cả 6 bài tập lớn mà mình đã tự tay hoàn thiện, quý thầy cô và các bạn có thể nhấp vào liên kết Drive học tập dưới đây.
                 </p>
                 <div class="pt-4">
@@ -311,7 +311,7 @@
             <div class="relative z-10 grid grid-cols-3 md:grid-cols-6 gap-6 text-center mt-3 text-[10px] font-bold uppercase tracking-wider text-bloom-dark/60 select-none">
                 <span>Bài 1: Giả lập tệp</span>
                 <span>Bài 2: Radar học thuật</span>
-                <span>Bài 3: Cấu trúc Prompt</span>
+                <span>Bài 3: Quỹ đạo từ vựng</span>
                 <span>Bài 4: Kanban dự án</span>
                 <span>Bài 5: Bản đồ sáng tạo</span>
                 <span>Bài 6: Chấm điểm đạo đức</span>
@@ -509,10 +509,10 @@
                 </div>
             </div>
 
-            <!-- BÀI 3: Trình xoay Vector Cosine tương tác thời gian thực -->
+            <!-- BÀI 3: Bản đồ quỹ đạo từ vựng học thuật động (Semantic Garden Map) -->
             <div id="project-card-3" class="project-card-view journal-card p-6 md:p-8 hidden space-y-6">
                 <div class="flex items-center justify-between border-b border-bloom-dark/10 pb-4">
-                    <h3 class="font-serif italic text-3xl text-bloom-dark">Bài tập 3 — Trình Điều Khiển Góc Nghiêng Cosine</h3>
+                    <h3 class="font-serif italic text-3xl text-bloom-dark">Bài tập 3 — Bản Đồ Quỹ Đạo Từ Vựng & Khoảng Cách Cosine</h3>
                     <span class="px-3 py-1 bg-bloom-sage rounded-full text-xs font-bold text-bloom-dark uppercase tracking-widest">GROWING</span>
                 </div>
                 
@@ -528,53 +528,54 @@
                     </div>
                 </div>
 
-                <!-- Trình điều khiển Cosine -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
-                    <!-- Bên trái: Trình hiển thị Vector bằng đồ hoạ SVG -->
-                    <div class="lg:col-span-6 bg-white border border-bloom-dark/15 rounded-xl p-4 flex flex-col items-center justify-center">
-                        <div class="relative w-48 h-48 border-l border-b border-gray-400">
-                            <!-- Trục Y -->
-                            <div class="absolute -top-4 left-0 text-[10px] text-gray-400 font-bold">Y</div>
-                            <!-- Trục X -->
-                            <div class="absolute bottom-0 -right-4 text-[10px] text-gray-400 font-bold">X</div>
-                            
-                            <!-- Vector "Mèo" (Cố định màu xanh lá) -->
-                            <svg class="absolute inset-0 w-full h-full">
-                                <line x1="0" y1="192" x2="150" y2="50" stroke="#7D9F7B" stroke-width="3" marker-end="url(#arrow)"/>
-                            </svg>
-                            <span class="absolute top-[40px] left-[130px] text-[10px] font-bold text-emerald-700 uppercase">Mèo (Vector A)</span>
+                <p class="text-xs leading-relaxed text-bloom-dark/70 italic">
+                    Hãy bấm vào các tab so sánh bên dưới để xem từ vựng tương ứng tự động co giãn khoảng cách vật lý thực tế so với từ gốc "Mèo" một cách vô cùng trực quan và dễ hiểu!
+                </p>
 
-                            <!-- Vector "Chó" (Quay dựa trên slider) -->
-                            <div id="vector-dog-container" class="absolute bottom-0 left-0 w-full h-full origin-bottom-left transition-transform duration-100" style="transform: rotate(15deg);">
-                                <svg class="w-full h-full">
-                                    <line x1="0" y1="192" x2="150" y2="192" stroke="#D9A752" stroke-width="3" />
-                                </svg>
-                                <span class="absolute bottom-[2px] left-[130px] text-[10px] font-bold text-amber-700 uppercase">Chó (Vector B)</span>
-                            </div>
-                        </div>
+                <!-- Bản đồ quỹ đạo từ vựng động -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
+                    <!-- Bên trái: Trình điều khiển tabs -->
+                    <div class="lg:col-span-5 flex flex-col gap-2 text-xs">
+                        <button onclick="showSemanticRelation('dog')" id="sem-btn-dog" class="w-full text-left p-3.5 rounded-lg border border-bloom-dark/10 hover:bg-bloom-sage/35 transition-all font-bold active-journey-node">
+                            🐶 Mèo ↔ Chó (Đồng nghĩa gần)
+                        </button>
+                        <button onclick="showSemanticRelation('tiger')" id="sem-btn-tiger" class="w-full text-left p-3.5 rounded-lg border border-bloom-dark/10 hover:bg-bloom-sage/35 transition-all font-bold">
+                            🐯 Mèo ↔ Hổ (Đồng nghĩa vừa)
+                        </button>
+                        <button onclick="showSemanticRelation('computer')" id="sem-btn-computer" class="w-full text-left p-3.5 rounded-lg border border-bloom-dark/10 hover:bg-bloom-sage/35 transition-all font-bold">
+                            💻 Mèo ↔ Máy tính (Khác nghĩa)
+                        </button>
                     </div>
 
-                    <!-- Bên phải: Trình điều khiển và tính toán kết quả -->
-                    <div class="lg:col-span-6 flex flex-col justify-between space-y-4 text-xs">
-                        <div class="space-y-1">
-                            <label class="font-bold text-bloom-dark uppercase tracking-wider block">Góc lệch ngữ nghĩa (θ): <span id="val-angle" class="text-bloom-gold font-extrabold text-sm">15°</span></label>
-                            <input type="range" id="cosine-slider" min="0" max="90" value="15" oninput="updateCosineSim(this.value)" class="w-full accent-bloom-gold h-2 bg-gray-200 rounded-lg cursor-pointer">
+                    <!-- Bên phải: Canvas biểu diễn vị trí từ động -->
+                    <div class="lg:col-span-7 bg-[#f6f6f2] p-6 border border-bloom-dark/10 rounded-xl flex flex-col justify-between min-h-[220px] relative overflow-hidden text-xs">
+                        <div class="relative w-full h-24 flex items-center">
+                            
+                            <!-- Tâm cố định: Từ "Mèo" -->
+                            <div class="absolute left-4 w-12 h-12 rounded-full bg-bloom-sage text-bloom-dark border border-bloom-dark/20 flex items-center justify-center font-bold z-20">
+                                Mèo
+                            </div>
+
+                            <!-- Sợi dây kết nối co giãn dài ngắn theo tabs -->
+                            <div id="semantic-line" class="absolute left-10 h-1 bg-[#7D9F7B] transition-all duration-500 z-10" style="width: 60px;"></div>
+
+                            <!-- Từ động di chuyển kéo xa gần -->
+                            <div id="semantic-dynamic-node" class="absolute left-10 w-12 h-12 rounded-full bg-bloom-peach text-bloom-dark border border-bloom-dark/20 flex items-center justify-center font-bold z-20 transition-all duration-500" style="transform: translate(60px, 0px);">
+                                <span id="semantic-word-label">Chó</span>
+                            </div>
+
                         </div>
 
-                        <div class="bg-bloom-sage/30 p-4 rounded-xl space-y-2 border border-bloom-dark/5">
+                        <!-- Bảng kết quả tương ứng -->
+                        <div class="border-t border-gray-200 pt-3 space-y-1">
                             <div class="flex justify-between items-center">
-                                <span class="font-bold text-bloom-dark uppercase tracking-widest text-[10px]">Độ tương đồng Cosine:</span>
-                                <span id="val-cosine" class="text-base font-extrabold text-bloom-dark">0.966</span>
+                                <span class="font-bold text-gray-500 text-[10px] uppercase">Cosine Similarity: <strong id="val-cosine-new" class="text-bloom-dark text-xs">0.950</strong></span>
+                                <span id="val-semantic-new" class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">Rất tương đồng</span>
                             </div>
-                            <div class="flex justify-between items-center border-t border-bloom-dark/5 pt-2">
-                                <span class="font-bold text-bloom-dark uppercase tracking-widest text-[10px]">Đánh giá ngữ nghĩa:</span>
-                                <span id="val-semantic" class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">Rất tương đồng</span>
-                            </div>
+                            <p class="text-[11px] text-gray-500 leading-relaxed italic pt-1" id="val-explain-new">
+                                Cả hai đều là vật nuôi gia đình vô cùng thân quen, có tần suất xuất hiện cạnh nhau cực kỳ cao trên không gian mạng nên khoảng cách của chúng rất gần.
+                            </p>
                         </div>
-
-                        <p class="text-[11px] text-gray-500 leading-relaxed italic">
-                            Khi hai từ mang sắc thái ngôn ngữ gần gũi (như "Chó" và "Mèo"), góc nghiêng giữa chúng trong không gian toán học vô cùng nhỏ, đưa độ tương đồng tiến gần tới giá trị 1.
-                        </p>
                     </div>
                 </div>
 
@@ -763,8 +764,7 @@
                         <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 space-y-1">
                             <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest block">Mô tả chi tiết cách dùng hợp lý:</span>
                             <p class="text-xs text-bloom-dark leading-relaxed font-semibold" id="eth-explain-text">
-                                Bạn nhờ AI tìm kiếm gợi ý các luận điểm, chỉnh sửa cấu trúc ngữ pháp lỗi chính tả nhưng tự mình viết lại toàn bộ nội dung.
-                            </p>
+                                Bạn nhờ AI brainstorm tìm ý tưởng sơ bộ cho bài thuyết trình, kiểm tra lỗi ngữ pháp câu chữ nhưng tự mình viết lại hoàn toàn nội dung.</p>
                         </div>
 
                         <p class="text-[11px] text-gray-500 leading-relaxed italic" id="eth-rule-text">
@@ -816,7 +816,7 @@
                     </div>
                     <h4 class="text-lg font-bold uppercase tracking-wider text-bloom-dark">2. Khó khăn & Thách thức đối mặt</h4>
                     <p class="text-gray-500 text-xs leading-relaxed font-semibold">
-                        Thách thức lớn nhất của mình là tự kiểm soát và duy trì sự cân bằng của bản thân. Việc làm việc nhóm trực tuyến đôi khi bị gián đoạn do lệch thời khoá biểu cá nhân của mỗi bạn, đòi hỏi tụi mình phải liên tục điều phối, rèn luyện kỹ năng tự giác. Bên cạnh đó, việc tự tay xây dựng và thiết kế trang sổ tay số (Digital Portfolio) này cũng đòi hỏi sự tỉ mỉ, kiên nhẫn để từng lớp thuộc tính CSS, từng chiếc lá chuyển động ginkgo rơi và các bảng tương tác hoạt họa hiển thị sắc nét nhất mà không làm mờ hình nền.
+                        Thách thức lớn nhất của mình là tự kiểm soát và duy trì sự quan trọng của sự thăng tiến cá nhân. Việc làm việc nhóm trực tuyến đôi khi bị gián đoạn do lệch thời khoá biểu cá nhân của mỗi bạn, đòi hỏi tụi mình phải liên tục điều phối, rèn luyện kỹ năng tự giác. Bên cạnh đó, việc tự tay xây dựng và thiết kế trang sổ tay số (Digital Portfolio) này cũng đòi hỏi sự tỉ mỉ, kiên nhẫn để từng lớp thuộc tính CSS, từng chiếc lá chuyển động ginkgo rơi và các bảng tương tác hoạt họa hiển thị sắc nét nhất mà không làm mờ hình nền.
                     </p>
                 </div>
                 <div class="border-t border-bloom-dark/5 pt-4 mt-6">
@@ -1041,31 +1041,46 @@
         }
 
         // ----------------------------------------------------
-        // BÀI 3: TRÌNH XOAY VECTOR COSINE SIMILARITY
+        // BÀI 3: TRÌNH XOAY VECTOR/CO CO GIÃN ĐA CHIỀU (Semantic Garden Map)
         // ----------------------------------------------------
-        function updateCosineSim(angle) {
-            // Xoay vector Chó ảo
-            document.getElementById('vector-dog-container').style.transform = `rotate(${angle}deg)`;
+        function showSemanticRelation(wordType) {
+            const node = document.getElementById('semantic-dynamic-node');
+            const line = document.getElementById('semantic-line');
+            const label = document.getElementById('semantic-word-label');
+            const cosineVal = document.getElementById('val-cosine-new');
+            const semanticEval = document.getElementById('val-semantic-new');
+            const explain = document.getElementById('val-explain-new');
             
-            // Cập nhật góc chữ
-            document.getElementById('val-angle').textContent = angle + "°";
-
-            // Tính toán giá trị tương đồng Cosine tượng trưng dựa trên góc nghiêng thực tế
-            const radians = angle * (Math.PI / 180);
-            const cosineVal = Math.cos(radians).toFixed(3);
-            document.getElementById('val-cosine').textContent = cosineVal;
-
-            // Đánh giá ngôn ngữ tự nhiên
-            const semanticLabel = document.getElementById('val-semantic');
-            if (cosineVal >= 0.9) {
-                semanticLabel.textContent = "Rất tương đồng";
-                semanticLabel.className = "text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full";
-            } else if (cosineVal >= 0.7) {
-                semanticLabel.textContent = "Liên quan vừa phải";
-                semanticLabel.className = "text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full";
-            } else {
-                semanticLabel.textContent = "Ít liên quan / Khác nghĩa";
-                semanticLabel.className = "text-xs font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded-full";
+            if (wordType === 'dog') {
+                // Xích lại gần tâm
+                node.style.transform = 'translate(60px, 0px)';
+                line.style.width = '60px';
+                line.style.backgroundColor = '#7D9F7B'; // màu xanh lá gần gũi
+                label.textContent = 'Chó';
+                cosineVal.textContent = '0.950';
+                semanticEval.textContent = 'Rất tương đồng (Mèo & Chó)';
+                semanticEval.className = 'text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full';
+                explain.textContent = 'Cả hai đều là thú cưng quen thuộc trong gia đình, có mối liên hệ mật thiết trong cuộc sống hàng ngày nên AI sắp xếp chúng nằm sát cạnh nhau.';
+            } else if (wordType === 'tiger') {
+                // Khoảng cách vừa phải
+                node.style.transform = 'translate(130px, 0px)';
+                line.style.width = '130px';
+                line.style.backgroundColor = '#D9A752'; // màu cam vừa
+                label.textContent = 'Hổ';
+                cosineVal.textContent = '0.650';
+                semanticEval.textContent = 'Tương đồng vừa phải (Mèo & Hổ)';
+                semanticEval.className = 'text-xs font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full';
+                explain.textContent = 'Cả hai đều thuộc họ Mèo (Felidae), chung một số đặc tính sinh học nhưng môi trường sống khác biệt, vì vậy khoảng cách ở mức vừa phải.';
+            } else if (wordType === 'computer') {
+                // Đẩy ra xa hoàn toàn
+                node.style.transform = 'translate(220px, 0px)';
+                line.style.width = '220px';
+                line.style.backgroundColor = '#EF4444'; // màu đỏ xa lạ
+                label.textContent = 'Máy tính';
+                cosineVal.textContent = '0.120';
+                semanticEval.textContent = 'Không liên quan (Mèo & Máy tính)';
+                semanticEval.className = 'text-xs font-bold text-red-700 bg-red-100 px-2.5 py-1 rounded-full';
+                explain.textContent = 'Không có bất kỳ sợi dây liên kết ngữ nghĩa nào (Động vật có vú vs Thiết bị điện tử thông minh), do đó chúng nằm ở hai rìa xa lạ của bản đồ.';
             }
         }
 
