@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Thị Phương Thảo - Bloom Journey</title>
+    <title>Nguyễn Thị Phương Thảo - Bloom Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Instrument Serif & Manrope -->
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Instrument Serif & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -17,23 +17,24 @@
                 extend: {
                     fontFamily: {
                         serif: ['Instrument Serif', 'serif'],
-                        sans: ['Manrope', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
                         sage: {
-                            50: '#F4f8f4',
-                            100: '#E8F2E7',
-                            800: '#3D4F41',
-                            900: '#2E3A31',
+                            50: '#F5F7F5',
+                            100: '#E9EFE9',
+                            200: '#D5E1D5',
+                            800: '#2A3B2E',
+                            900: '#1C2B21',
                         },
                         cream: {
-                            50: '#FAF8F2',
-                            100: '#F3EFE3',
+                            50: '#FAF8F5',
+                            100: '#F2ECE4',
                         },
-                        peach: '#F7E6D4',
-                        sky: '#D9EAF7',
-                        rose: '#FBEAEA',
-                        violet: '#F0EBF7',
+                        peach: '#F9EBE0',
+                        sky: '#E1EDF7',
+                        rose: '#FCEBEB',
+                        violet: '#F2EDFA',
                     }
                 }
             }
@@ -42,110 +43,121 @@
     
     <style>
         body {
-            background-color: #FAF8F2;
-            color: #2E3A31;
+            background-color: #FAF8F5;
+            color: #1C2B21;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* 1. Phông chữ Serif nghệ thuật của phong cách Bloom */
         .title-serif {
             font-family: 'Instrument Serif', serif;
         }
 
-        /* Hiệu ứng mờ nền giấy của Journal */
+        /* Khung kính mờ phong cách sổ tay Nhật ký */
         .journal-card {
             background: #ffffff;
-            border: 1px solid rgba(46, 58, 49, 0.08);
-            box-shadow: 0 4px 20px rgba(46, 58, 49, 0.03);
+            border: 1px solid rgba(28, 43, 33, 0.06);
+            box-shadow: 0 4px 24px rgba(28, 43, 33, 0.02);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .journal-card:hover {
             transform: translateY(-8px) rotate(1deg);
-            box-shadow: 0 16px 35px rgba(46, 58, 49, 0.08);
+            box-shadow: 0 20px 38px rgba(28, 43, 33, 0.07);
         }
 
-        /* Khung kẹp giấy retro (Paperclip style) */
+        /* Sửa lỗi kẹp giấy: Định dạng chính xác, giữ tỷ lệ cố định */
         .paperclip {
             position: absolute;
-            top: -15px;
-            left: 24px;
+            top: -12px;
+            left: 20px;
             width: 14px;
-            height: 40px;
-            border: 2px solid #a3b899;
+            height: 38px;
+            border: 2px solid #8FA89B;
             border-radius: 10px;
             background: transparent;
             z-index: 20;
-            transform: rotate(-5deg);
+            transform: rotate(-6deg);
         }
         .paperclip::after {
             content: '';
             position: absolute;
             top: 4px;
-            left: 2px;
-            width: 6px;
-            height: 26px;
-            border: 1.5px solid #a3b899;
+            left: 1px;
+            width: 8px;
+            height: 24px;
+            border: 1.5px solid #8FA89B;
             border-radius: 6px;
         }
 
-        /* Hiệu ứng Cánh hoa rơi tự do trên trang */
+        /* Khắc phục lỗi tràn viền do cánh hoa rơi tự do */
         .petal {
             position: absolute;
             background: #ffffff;
             border-radius: 150% 0 150% 0;
-            opacity: 0.7;
+            opacity: 0.65;
             pointer-events: none;
-            z-index: 15;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            z-index: 5;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
             animation: fall linear infinite;
         }
 
         @keyframes fall {
             0% {
                 transform: translate(0, -50px) rotate(0deg);
-                opacity: 0.8;
+                opacity: 0.7;
             }
             100% {
-                transform: translate(150px, 100vh) rotate(360deg);
+                transform: translate(120px, 100vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        /* Sinh trưởng nhành cây khi cuộn trang */
+        /* Định dạng nét cành cây sinh trưởng */
         #growth-vine {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            transition: stroke-dashoffset 0.1s linear;
+            stroke-dasharray: 0;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 0.1s ease-out;
         }
 
         .bloom-node {
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .bloom-node:hover {
-            transform: scale(1.3);
+            transform: scale(1.25);
+        }
+
+        /* Hoạt cảnh xuất hiện mượt mà của các section */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased text-sage-900">
 
-    <!-- Container cho các cánh hoa bay -->
-    <div id="petals-container" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+    <!-- Container cố định tuyệt đối an toàn chứa cánh hoa rơi -->
+    <div id="petals-container" class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-10"></div>
 
-    <!-- Navigation Header kiểu tối giản Muji x Pinterest -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-[#FAF8F2]/80 backdrop-blur-md border-b border-sage-800/5">
+    <!-- Thanh điều hướng tối giản Muji x Apple -->
+    <nav class="fixed top-0 left-0 w-full z-40 bg-[#FAF8F5]/85 backdrop-blur-lg border-b border-sage-900/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             
-            <!-- Logo Bloom kèm nhành cúc dại -->
+            <!-- Logo thương hiệu Bloom kèm bông cúc dại thanh nhã -->
             <a href="#" class="flex items-center gap-2 group">
-                <span class="text-3xl title-serif italic font-medium tracking-tight text-sage-900 group-hover:opacity-80 transition-opacity">
+                <span class="text-3xl title-serif italic font-medium tracking-tight text-sage-900 group-hover:opacity-85 transition-opacity">
                     🌼 Bloom.
                 </span>
             </a>
 
-            <!-- Menu dạng chữ mảnh tinh tế -->
-            <div class="hidden lg:flex items-center gap-10 text-[13px] font-semibold tracking-wider text-sage-800">
+            <!-- Menu căn giữa chữ nhỏ thanh mảnh -->
+            <div class="hidden lg:flex items-center gap-10 text-xs font-semibold tracking-wider text-sage-800 uppercase">
                 <a href="#trang-chu" class="hover:opacity-60 transition-opacity">Home</a>
                 <a href="#gioi-thieu" class="hover:opacity-60 transition-opacity">Journey</a>
                 <a href="#du-an" class="hover:opacity-60 transition-opacity">Projects</a>
@@ -153,23 +165,23 @@
                 <a href="#lien-he" class="hover:opacity-60 transition-opacity">About</a>
             </div>
 
-            <!-- Nút liên kết Google Drive với nhành lá mảnh dẻ -->
+            <!-- Nút liên kết Google Drive với nhành lá dại -->
             <a href="https://drive.google.com/drive/folders/1uIxDeZfLKVBBHJIIxazKuHtUc8O636vU?usp=drive_link" 
                target="_blank" 
-               class="px-5 py-2 rounded-full border border-sage-900 text-[12px] font-bold text-sage-900 hover:bg-sage-900 hover:text-white transition-all flex items-center gap-2">
+               class="px-5 py-2.5 rounded-full border border-sage-900 text-xs font-bold text-sage-900 hover:bg-sage-900 hover:text-white transition-all flex items-center gap-2">
                 Xem GG Drive 🌿
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section: Lấy cảm hứng hoàn toàn từ trang đầu tiên -->
+    <!-- Hero Section (Tái tạo tỷ lệ chuẩn xác Hình 1.jpg) -->
     <section id="trang-chu" class="relative min-h-screen pt-32 pb-16 flex items-center overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-20">
             
-            <!-- Trực quan bên trái: Typography & Tóm tắt tinh tế -->
+            <!-- Hero Left: Thông tin giới thiệu & Bố cục chữ lớn -->
             <div class="lg:col-span-7 space-y-8">
                 <!-- Academic Pill -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-[11px] font-bold tracking-wider text-sage-800 uppercase">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sage-100 text-[10px] font-bold tracking-wider text-sage-800 uppercase">
                     🎓 Trường Đại học Ngoại ngữ — Đại học Quốc gia Hà Nội
                 </div>
 
@@ -183,51 +195,46 @@
                     </p>
                 </div>
 
-                <!-- Thông tin chi tiết sinh viên dạng tối giản Apple -->
-                <div class="space-y-1 py-4 border-l-2 border-sage-100 pl-6 max-w-md">
-                    <p class="text-xs font-extrabold tracking-widest text-sage-800 uppercase">Nguyễn Thị Phương Thảo — MSSV: 25041079</p>
-                    <p class="text-xs text-sage-800">Khoa Ngôn ngữ và Văn hoá Anh • Nhập môn Công nghệ số & AI</p>
-                    <p class="text-xs text-gray-500 mt-2">Chào mừng bạn đến với vườn học tập kỹ thuật số. Nơi gieo mầm ý tưởng, nuôi dưỡng tri thức và lan toả giá trị bền vững.</p>
+                <!-- Thông tin sinh viên dạng thẻ ghi chú thanh mảnh -->
+                <div class="space-y-1 py-4 border-l-2 border-sage-200 pl-6 max-w-md">
+                    <p class="text-xs font-bold tracking-wider text-sage-900 uppercase">Nguyễn Thị Phương Thảo — MSSV: 25041079</p>
+                    <p class="text-xs text-sage-800 font-medium">Khoa Ngôn ngữ và Văn hoá Anh • Nhập môn Công nghệ số & AI</p>
+                    <p class="text-xs text-gray-500 mt-2 font-medium">Một hành trình ghi chép quá trình tự nghiên cứu học thuật, ứng dụng hiệu quả các công cụ thông minh một cách trung thực và liêm chính.</p>
                 </div>
 
-                <!-- Các nút điều hướng tinh tế -->
+                <!-- Các nút điều hướng trực quan -->
                 <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-wider">
-                    <a href="#du-an" class="px-6 py-3.5 bg-sage-900 text-white rounded-xl hover:opacity-90 transition-opacity">
+                    <a href="#du-an" class="px-6 py-4 bg-sage-900 text-white rounded-xl hover:opacity-90 transition-opacity shadow-sm">
                         Explore my journey 🌿
                     </a>
-                    <a href="#gioi-thieu" class="px-6 py-3.5 text-sage-900 hover:underline">
+                    <a href="#gioi-thieu" class="px-6 py-4 text-sage-900 hover:underline">
                         About me →
                     </a>
                 </div>
             </div>
 
-            <!-- Trực quan bên phải: Hoạ hoạ đoá cúc dại thơ mộng -->
+            <!-- Hero Right: Avatar của bạn lồng trong khung Journal -->
             <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                <div class="relative w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] select-none">
+                <div class="relative w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] select-none">
                     <!-- Sơ đồ nhành hoa cúc dại vẽ nét mờ lãng mạn -->
-                    <svg class="w-full h-full opacity-90 drop-shadow-md" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M200,380 C200,280 230,180 210,120" stroke="#5C6B5E" stroke-width="4" stroke-linecap="round"/>
+                    <svg class="w-full h-full opacity-80" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M200,380 C200,280 230,180 210,120" stroke="#5C6B5E" stroke-width="3" stroke-linecap="round"/>
                         <path d="M210,120 C180,150 150,180 140,220" stroke="#5C6B5E" stroke-width="2" stroke-linecap="round"/>
                         <path d="M202,170 C230,190 260,210 270,240" stroke="#5C6B5E" stroke-width="2" stroke-linecap="round"/>
-                        <!-- Lá xanh nhạt -->
-                        <path d="M140,220 C130,200 115,205 125,225 C135,245 145,235 140,220 Z" fill="#E8F2E7" stroke="#5C6B5E" stroke-width="2"/>
-                        <path d="M270,240 C285,230 290,245 275,255 C260,265 265,250 270,240 Z" fill="#E8F2E7" stroke="#5C6B5E" stroke-width="2"/>
-                        <!-- Đóa Hoa cúc chính -->
+                        <!-- Lá cúc xanh nhạt -->
+                        <path d="M140,220 C130,200 115,205 125,225 C135,245 145,235 140,220 Z" fill="#E9EFE9" stroke="#5C6B5E" stroke-width="1.5"/>
+                        <path d="M270,240 C285,230 290,245 275,255 C260,265 265,250 270,240 Z" fill="#E9EFE9" stroke="#5C6B5E" stroke-width="1.5"/>
+                        <!-- Hoa cúc dại lớn -->
                         <g transform="translate(210, 110)">
-                            <!-- Cánh hoa xếp lớp -->
-                            <circle cx="0" cy="0" r="16" fill="#FCE881" stroke="#5C6B5E" stroke-width="3"/>
-                            <path d="M0,-16 C-5,-30 5,-30 0,-16" fill="#FFFFFF" stroke="#5C6B5E" stroke-width="2"/>
-                            <path d="M0,16 C-5,30 5,30 0,16" fill="#FFFFFF" stroke="#5C6B5E" stroke-width="2"/>
-                            <path d="M-16,0 C-30,-5 -30,5 -16,0" fill="#FFFFFF" stroke="#5C6B5E" stroke-width="2"/>
-                            <path d="M16,0 C30,-5 30,5 16,0" fill="#FFFFFF" stroke="#5C6B5E" stroke-width="2"/>
-                            <path d="M-11,-11 C-24,-20 -20,-24 -11,-11" fill="#FFFFFF" stroke="#5C6B5E" stroke-width="2"/>
-                            <path d="M11,11 C24,20 20,24 11,11" fill="#FFFFFF" stroke="#5C6B5E" stroke-width="2"/>
-                            <path d="M-11,11 C-24,20 -20,24 -11,11" fill="#FFFFFF" stroke="#5C6B5E" stroke-width="2"/>
-                            <path d="M11,-11 C24,-20 20,-24 11,-11" fill="#FFFFFF" stroke="#5C6B5E" stroke-width="2"/>
+                            <circle cx="0" cy="0" r="14" fill="#FCE881" stroke="#3D4F41" stroke-width="2.5"/>
+                            <path d="M0,-14 C-4,-26 4,-26 0,-14" fill="#FFFFFF" stroke="#3D4F41" stroke-width="1.5"/>
+                            <path d="M0,14 C-4,26 4,26 0,14" fill="#FFFFFF" stroke="#3D4F41" stroke-width="1.5"/>
+                            <path d="M-14,0 C-26,-4 -26,4 -14,0" fill="#FFFFFF" stroke="#3D4F41" stroke-width="1.5"/>
+                            <path d="M14,0 C26,-4 26,4 14,0" fill="#FFFFFF" stroke="#3D4F41" stroke-width="1.5"/>
                         </g>
                     </svg>
-                    <!-- Ảnh chân dung nhỏ đính kèm thơ mộng -->
-                    <div class="absolute bottom-4 left-4 w-28 h-36 rounded-xl overflow-hidden border-2 border-white rotate-[-6deg] shadow-lg">
+                    <!-- Ảnh chân dung nhỏ đính kèm lãng mạn góc nghiêng -->
+                    <div class="absolute bottom-6 left-4 w-32 h-40 rounded-xl overflow-hidden border-4 border-white rotate-[-6deg] shadow-xl">
                         <img src="Hình 1.jpg" alt="Nguyễn Thị Phương Thảo" class="w-full h-full object-cover">
                     </div>
                 </div>
@@ -236,72 +243,89 @@
         </div>
     </section>
 
-    <!-- Sơ đồ tự sinh trưởng học thuật (My Learning Journey - Nhánh cây nở hoa dần) -->
-    <section id="gioi-thieu" class="py-24 relative z-10 max-w-7xl mx-auto px-6 reveal">
+    <!-- Sơ đồ tự sinh trưởng học tập (My Learning Journey) -->
+    <section id="gioi-thieu" class="py-24 relative z-20 max-w-7xl mx-auto px-6 reveal">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl md:text-5xl title-serif italic text-sage-900">My Learning Journey</h2>
             <p class="text-xs text-sage-800 uppercase tracking-widest font-extrabold mt-2">From a tiny seed to a blooming garden.</p>
         </div>
 
-        <!-- Nhánh cây sinh trưởng điều khiển bằng Scoll SVG -->
-        <div class="relative w-full max-w-5xl mx-auto py-12">
-            <svg class="w-full h-auto overflow-visible" viewBox="0 0 1000 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Đường cành cây dẫn đường -->
-                <path d="M20,75 Q150,25 300,75 T600,75 T980,75" stroke="#E8F2E7" stroke-width="6" stroke-linecap="round"/>
-                <!-- Nhánh cây thực tế mọc ra theo cuộn trang -->
-                <path id="growth-vine" d="M20,75 Q150,25 300,75 T600,75 T980,75" stroke="#6B8E23" stroke-width="4" stroke-linecap="round"/>
-                
-                <!-- Giai đoạn mốc 1 -->
-                <g class="bloom-node cursor-pointer" onclick="switchProject(1)" transform="translate(50, 75)">
-                    <circle cx="0" cy="0" r="10" fill="#FAF8F2" stroke="#6B8E23" stroke-width="4"/>
-                    <text x="0" y="30" text-anchor="middle" class="text-[11px] font-extrabold fill-sage-900 uppercase">01. Seed</text>
-                    <text x="0" y="45" text-anchor="middle" class="text-[9px] fill-gray-500 uppercase">Hạt giống tệp tin</text>
-                </g>
-                <!-- Giai đoạn mốc 2 -->
-                <g class="bloom-node cursor-pointer" onclick="switchProject(2)" transform="translate(230, 52)">
-                    <circle cx="0" cy="0" r="10" fill="#FAF8F2" stroke="#6B8E23" stroke-width="4"/>
-                    <text x="0" y="30" text-anchor="middle" class="text-[11px] font-extrabold fill-sage-900 uppercase">02. First Leaves</text>
-                    <text x="0" y="45" text-anchor="middle" class="text-[9px] fill-gray-500 uppercase">Mầm xanh học thuật</text>
-                </g>
-                <!-- Giai đoạn mốc 3 -->
-                <g class="bloom-node cursor-pointer" onclick="switchProject(3)" transform="translate(420, 75)">
-                    <circle cx="0" cy="0" r="10" fill="#FAF8F2" stroke="#6B8E23" stroke-width="4"/>
-                    <text x="0" y="30" text-anchor="middle" class="text-[11px] font-extrabold fill-sage-900 uppercase">03. Growing</text>
-                    <text x="0" y="45" text-anchor="middle" class="text-[9px] fill-gray-500 uppercase">Bồi đắp kỹ năng</text>
-                </g>
-                <!-- Giai đoạn mốc 4 -->
-                <g class="bloom-node cursor-pointer" onclick="switchProject(4)" transform="translate(610, 75)">
-                    <circle cx="0" cy="0" r="10" fill="#FAF8F2" stroke="#6B8E23" stroke-width="4"/>
-                    <text x="0" y="30" text-anchor="middle" class="text-[11px] font-extrabold fill-sage-900 uppercase">04. Budding</text>
-                    <text x="0" y="45" text-anchor="middle" class="text-[9px] fill-gray-500 uppercase">Chớm nở dự án</text>
-                </g>
-                <!-- Giai đoạn mốc 5 -->
-                <g class="bloom-node cursor-pointer" onclick="switchProject(5)" transform="translate(800, 75)">
-                    <circle cx="0" cy="0" r="10" fill="#FAF8F2" stroke="#6B8E23" stroke-width="4"/>
-                    <text x="0" y="30" text-anchor="middle" class="text-[11px] font-extrabold fill-sage-900 uppercase">05. Blooming</text>
-                    <text x="0" y="45" text-anchor="middle" class="text-[9px] fill-gray-500 uppercase">Bản sắc nội dung</text>
-                </g>
-                <!-- Giai đoạn mốc 6 -->
-                <g class="bloom-node cursor-pointer" onclick="switchProject(6)" transform="translate(950, 75)">
-                    <circle cx="0" cy="0" r="10" fill="#FAF8F2" stroke="#6B8E23" stroke-width="4"/>
-                    <text x="0" y="30" text-anchor="middle" class="text-[11px] font-extrabold fill-sage-900 uppercase">06. Garden</text>
-                    <text x="0" y="45" text-anchor="middle" class="text-[9px] fill-gray-500 uppercase">Liêm chính học thuật</text>
-                </g>
-            </svg>
+        <!-- Nhánh cây sinh trưởng điều khiển cuộn trang -->
+        <div class="relative w-full max-w-5xl mx-auto py-8">
+            <!-- Ẩn dạng SVG ngang trên Mobile, chỉ hiện trên Desktop để không bị bóp méo giao diện -->
+            <div class="hidden md:block">
+                <svg class="w-full h-auto overflow-visible" viewBox="0 0 1000 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,75 Q150,25 300,75 T600,75 T980,75" stroke="#E9EFE9" stroke-width="5" stroke-linecap="round"/>
+                    <path id="growth-vine" d="M20,75 Q150,25 300,75 T600,75 T980,75" stroke="#6B8E23" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <g class="bloom-node cursor-pointer" onclick="openProjectModal(1)" transform="translate(50, 75)">
+                        <circle cx="0" cy="0" r="9" fill="#FAF8F5" stroke="#6B8E23" stroke-width="4"/>
+                        <text x="0" y="32" text-anchor="middle" class="text-[11px] font-bold fill-sage-900 uppercase">01. Seed</text>
+                    </g>
+                    <g class="bloom-node cursor-pointer" onclick="openProjectModal(2)" transform="translate(230, 52)">
+                        <circle cx="0" cy="0" r="9" fill="#FAF8F5" stroke="#6B8E23" stroke-width="4"/>
+                        <text x="0" y="32" text-anchor="middle" class="text-[11px] font-bold fill-sage-900 uppercase">02. First Leaves</text>
+                    </g>
+                    <g class="bloom-node cursor-pointer" onclick="openProjectModal(3)" transform="translate(420, 75)">
+                        <circle cx="0" cy="0" r="9" fill="#FAF8F5" stroke="#6B8E23" stroke-width="4"/>
+                        <text x="0" y="32" text-anchor="middle" class="text-[11px] font-bold fill-sage-900 uppercase">03. Growing</text>
+                    </g>
+                    <g class="bloom-node cursor-pointer" onclick="openProjectModal(4)" transform="translate(610, 75)">
+                        <circle cx="0" cy="0" r="9" fill="#FAF8F5" stroke="#6B8E23" stroke-width="4"/>
+                        <text x="0" y="32" text-anchor="middle" class="text-[11px] font-bold fill-sage-900 uppercase">04. Budding</text>
+                    </g>
+                    <g class="bloom-node cursor-pointer" onclick="openProjectModal(5)" transform="translate(800, 75)">
+                        <circle cx="0" cy="0" r="9" fill="#FAF8F5" stroke="#6B8E23" stroke-width="4"/>
+                        <text x="0" y="32" text-anchor="middle" class="text-[11px] font-bold fill-sage-900 uppercase">05. Blooming</text>
+                    </g>
+                    <g class="bloom-node cursor-pointer" onclick="openProjectModal(6)" transform="translate(950, 75)">
+                        <circle cx="0" cy="0" r="9" fill="#FAF8F5" stroke="#6B8E23" stroke-width="4"/>
+                        <text x="0" y="32" text-anchor="middle" class="text-[11px] font-bold fill-sage-900 uppercase">06. Garden</text>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Giao diện Timeline học tập dọc mượt mà cho các thiết bị Mobile -->
+            <div class="block md:hidden space-y-6 pl-4 border-l border-sage-200">
+                <div class="cursor-pointer" onclick="openProjectModal(1)">
+                    <span class="text-xs font-bold text-emerald-600 block">01. SEED</span>
+                    <span class="text-sm font-semibold text-sage-900">Thao tác cơ bản tệp tin</span>
+                </div>
+                <div class="cursor-pointer" onclick="openProjectModal(2)">
+                    <span class="text-xs font-bold text-orange-600 block">02. FIRST LEAVES</span>
+                    <span class="text-sm font-semibold text-sage-900">Tìm kiếm & đánh giá nguồn tin</span>
+                </div>
+                <div class="cursor-pointer" onclick="openProjectModal(3)">
+                    <span class="text-xs font-bold text-blue-600 block">03. GROWING</span>
+                    <span class="text-sm font-semibold text-sage-900">Kiến tạo câu lệnh Prompting</span>
+                </div>
+                <div class="cursor-pointer" onclick="openProjectModal(4)">
+                    <span class="text-xs font-bold text-red-600 block">04. BUDDING</span>
+                    <span class="text-sm font-semibold text-sage-900">Quản trị dự án từ xa</span>
+                </div>
+                <div class="cursor-pointer" onclick="openProjectModal(5)">
+                    <span class="text-xs font-bold text-purple-600 block">05. BLOOMING</span>
+                    <span class="text-sm font-semibold text-sage-900">Sáng tạo Infographic với AI</span>
+                </div>
+                <div class="cursor-pointer" onclick="openProjectModal(6)">
+                    <span class="text-xs font-bold text-green-700 block">06. GARDEN</span>
+                    <span class="text-sm font-semibold text-sage-900">Liêm chính học thuật</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Nút drive phụ tinh gọn đặt trước Projects -->
+    <!-- Nút Drive đính kèm nhã nhặn trước phần Projects -->
     <div class="max-w-7xl mx-auto px-6 text-center py-6 reveal">
         <a href="https://drive.google.com/drive/folders/1uIxDeZfLKVBBHJIIxazKuHtUc8O636vU?usp=drive_link" 
            target="_blank" 
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-sage-800 text-xs font-bold text-sage-900 bg-white hover:bg-sage-100 transition-colors">
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-sage-800 text-xs font-bold text-sage-900 bg-white hover:bg-sage-50 transition-all">
             <i class="fab fa-google-drive text-emerald-600"></i> Xem Chi Tiết Báo Cáo PDF Trên Google Drive 🌿
         </a>
     </div>
 
-    <!-- Bài tập (Trang Dự án thiết kế Card có kẹp giấy lãng mạn) -->
-    <section id="du-an" class="py-24 relative z-10 max-w-7xl mx-auto px-6 reveal">
+    <!-- Bài tập (Trang Dự án thiết kế Card) -->
+    <section id="du-an" class="py-24 relative z-20 max-w-7xl mx-auto px-6 reveal">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl md:text-5xl title-serif italic text-sage-900">Projects</h2>
             <p class="text-xs text-sage-800 uppercase tracking-widest font-extrabold mt-2">Each project is a flower in my garden.</p>
@@ -312,111 +336,111 @@
             <!-- Card 1: Hạt giống tệp tin -->
             <div class="journal-card rounded-2xl p-8 relative flex flex-col justify-between bg-sage-50">
                 <div class="paperclip"></div>
-                <div class="space-y-4">
+                <div class="space-y-4 pt-2">
                     <span class="text-[10px] uppercase font-extrabold tracking-widest text-emerald-600">01. Hạt giống (Seed)</span>
                     <h3 class="text-xl font-bold title-serif text-sage-900">Thao tác cơ bản với Tệp tin & Thư mục</h3>
-                    <div class="space-y-2 text-xs text-gray-600">
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Objective</strong> Làm quen hệ thống Windows, phân loại cấu trúc thông tin học tập.</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Process</strong> Khởi tạo cây thư mục "ThucHanh_NguyenThiPhuongThao", tạo tệp "GhiChu.txt", đổi tên, phân cấp thư mục con "TaiLieu".</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Outcome</strong> Thư mục có cấu trúc logic chuẩn hoá, di chuyển dữ liệu nhanh.</p>
+                    <div class="space-y-3 text-xs text-gray-700 font-medium">
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Objective</strong> Làm quen hệ thống Windows, phân loại cấu trúc thông tin học tập khoa học.</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Process</strong> Khởi tạo thư mục "ThucHanh_NguyenThiPhuongThao", tạo tệp "GhiChu.txt", đổi tên, tạo thư mục con "TaiLieu".</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Outcome</strong> Cây thư mục được chuẩn hóa hợp lý, chuyển đổi vị trí tệp tin nhanh chóng.</p>
                     </div>
                 </div>
-                <button onclick="switchProjectAndScroll(1)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
+                <button onclick="openProjectModal(1)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
             </div>
 
             <!-- Card 2: Mầm xanh học thuật -->
             <div class="journal-card rounded-2xl p-8 relative flex flex-col justify-between bg-peach/40">
                 <div class="paperclip"></div>
-                <div class="space-y-4">
+                <div class="space-y-4 pt-2">
                     <span class="text-[10px] uppercase font-extrabold tracking-widest text-orange-600">02. Mầm xanh (First Leaves)</span>
                     <h3 class="text-xl font-bold title-serif text-sage-900">Tìm kiếm & Đánh giá nguồn học thuật</h3>
-                    <div class="space-y-2 text-xs text-gray-600">
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Objective</strong> Định dạng và thẩm định 10 nguồn tài liệu nghiên cứu AI trong ngôn ngữ học.</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Process</strong> Lọc tài liệu từ Google Scholar & ScienceDirect, đánh giá độ tin cậy dựa trên thang điểm danh tiếng tác giả và NXB.</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Outcome</strong> Bản báo cáo chất lượng xếp hạng tài liệu uy tín dạng Harvard Style.</p>
+                    <div class="space-y-3 text-xs text-gray-700 font-medium">
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Objective</strong> Tìm kiếm và kiểm chứng 10 nguồn tài liệu nghiên cứu AI trong ngôn ngữ học.</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Process</strong> Tra cứu Google Scholar & ScienceDirect, chấm điểm tin cậy dựa trên thang điểm danh tiếng tác giả và NXB.</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Outcome</strong> Bản báo cáo đánh giá nguồn tin chuyên sâu đạt chuẩn Harvard Style.</p>
                     </div>
                 </div>
-                <button onclick="switchProjectAndScroll(2)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
+                <button onclick="openProjectModal(2)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
             </div>
 
             <!-- Card 3: Bồi đắp kỹ năng -->
             <div class="journal-card rounded-2xl p-8 relative flex flex-col justify-between bg-sky/40">
                 <div class="paperclip"></div>
-                <div class="space-y-4">
+                <div class="space-y-4 pt-2">
                     <span class="text-[10px] uppercase font-extrabold tracking-widest text-blue-600">03. Phát triển (Growing)</span>
                     <h3 class="text-xl font-bold title-serif text-sage-900">Thiết lập câu lệnh Prompting tối ưu</h3>
-                    <div class="space-y-2 text-xs text-gray-600">
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Objective</strong> Xây dựng các mẫu Prompt đa tầng để nâng cao hiệu suất học từ AI.</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Process</strong> So sánh hiệu quả câu lệnh Cơ bản, Cải tiến, Nâng cao trong các tác vụ tóm tắt bài giảng, giải thích từ vựng kỹ thuật.</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Outcome</strong> Bộ khung câu lệnh giải quyết chính xác hiện tượng "ảo giác AI".</p>
+                    <div class="space-y-3 text-xs text-gray-700 font-medium">
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Objective</strong> Xây dựng các mẫu Prompt đa tầng phục vụ việc tự học thông minh.</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Process</strong> So sánh hiệu năng câu lệnh Cơ bản, Cải tiến, Nâng cao trong các tác vụ tóm tắt bài báo và giải thích ngữ nghĩa.</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Outcome</strong> Bộ khung câu lệnh giải thích chuẩn xác hiện tượng "ảo giác AI".</p>
                     </div>
                 </div>
-                <button onclick="switchProjectAndScroll(3)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
+                <button onclick="openProjectModal(3)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
             </div>
 
             <!-- Card 4: Chớm nở dự án -->
             <div class="journal-card rounded-2xl p-8 relative flex flex-col justify-between bg-rose">
                 <div class="paperclip"></div>
-                <div class="space-y-4">
+                <div class="space-y-4 pt-2">
                     <span class="text-[10px] uppercase font-extrabold tracking-widest text-red-600">04. Chớm nở (Budding)</span>
                     <h3 class="text-xl font-bold title-serif text-sage-900">Quản lý dự án hợp tác trực tuyến</h3>
-                    <div class="space-y-2 text-xs text-gray-600">
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Objective</strong> Điều phối và làm việc từ xa cùng thành viên đề tài "AI trong cuộc sống".</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Process</strong> Phân rã tiến độ trên Trello, soạn thảo trên Google Docs, đồng bộ tài liệu qua Google Drive và trao đổi trên Discord.</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Outcome</strong> Phối hợp ăn ý, hoàn thiện sản phẩm trình chiếu nhóm đúng hạn.</p>
+                    <div class="space-y-3 text-xs text-gray-700 font-medium">
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Objective</strong> Đồng hành và làm việc từ xa cùng thành viên đề tài "AI trong cuộc sống".</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Process</strong> Phân công chi tiết trên Trello, soạn thảo trên Docs, đồng bộ dữ liệu qua Drive và giao tiếp trên Discord.</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Outcome</strong> Đảm bảo tiến trình phối hợp trơn tru, bài thuyết trình được nộp đúng hạn.</p>
                     </div>
                 </div>
-                <button onclick="switchProjectAndScroll(4)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
+                <button onclick="openProjectModal(4)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
             </div>
 
             <!-- Card 5: Bản sắc nội dung -->
             <div class="journal-card rounded-2xl p-8 relative flex flex-col justify-between bg-violet/40">
                 <div class="paperclip"></div>
-                <div class="space-y-4">
+                <div class="space-y-4 pt-2">
                     <span class="text-[10px] uppercase font-extrabold tracking-widest text-purple-600">05. Rực rỡ (Blooming)</span>
                     <h3 class="text-xl font-bold title-serif text-sage-900">Sáng tạo nội dung giáo dục với AI</h3>
-                    <div class="space-y-2 text-xs text-gray-600">
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Objective</strong> Thiết kế Infographic tối giản "Ứng dụng AI tạo sinh trong đại học".</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Process</strong> Dùng ChatGPT phác thảo nội dung, dùng DALL-E sinh ảnh cúc dại, cành lá phẳng và hoàn thiện biểu tượng trên Canva.</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Outcome</strong> Ấn phẩm thiết kế tinh gọn, mang đậm sắc thái học viên ngôn ngữ.</p>
+                    <div class="space-y-3 text-xs text-gray-700 font-medium">
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Objective</strong> Thiết kế Infographic tối giản "Ứng dụng AI tạo sinh trong đại học".</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Process</strong> Dùng ChatGPT lên dàn ý nội dung, dùng DALL-E phác hoạ đồ hoạ phẳng và hoàn thiện bố cục thông tin trên Canva.</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Outcome</strong> Sản phẩm thiết kế thanh lịch, giàu tri thức số và mang bản sắc riêng.</p>
                     </div>
                 </div>
-                <button onclick="switchProjectAndScroll(5)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
+                <button onclick="openProjectModal(5)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
             </div>
 
             <!-- Card 6: Liêm chính học thuật -->
             <div class="journal-card rounded-2xl p-8 relative flex flex-col justify-between bg-sage-50">
                 <div class="paperclip"></div>
-                <div class="space-y-4">
+                <div class="space-y-4 pt-2">
                     <span class="text-[10px] uppercase font-extrabold tracking-widest text-green-700">06. Lan toả (Garden)</span>
                     <h3 class="text-xl font-bold title-serif text-sage-900">Khai thác AI an toàn & Liêm chính</h3>
-                    <div class="space-y-2 text-xs text-gray-600">
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Objective</strong> Phân tích đạo đức và quy chế sử dụng AI tại Đại học Ngoại ngữ (ULIS).</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Process</strong> Làm rõ ranh giới hỗ trợ thông minh và gian lận (copy nguyên văn), tổng kết 6 nguyên tắc đạo đức cá nhân.</p>
-                        <p><strong class="text-sage-800 uppercase text-[10px] tracking-wide block">Outcome</strong> Sơ đồ tư duy hướng dẫn quy tắc sử dụng trí tuệ nhân tạo có trách nhiệm.</p>
+                    <div class="space-y-3 text-xs text-gray-700 font-medium">
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Objective</strong> Đánh giá đạo đức và quy định sử dụng công cụ AI tại đại học (ULIS).</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Process</strong> Phân rõ ranh giới hỗ trợ và gian lận học thuật, thiết kế 6 nguyên tắc liêm chính cá nhân.</p>
+                        <p><strong class="text-sage-800 uppercase text-[9px] tracking-wider block mb-0.5">Outcome</strong> Bản báo cáo chi tiết và hướng dẫn sơ đồ tư duy sử dụng AI có trách nhiệm.</p>
                     </div>
                 </div>
-                <button onclick="switchProjectAndScroll(6)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
+                <button onclick="openProjectModal(6)" class="text-xs font-bold text-sage-800 hover:underline pt-6 block text-left">Explore project →</button>
             </div>
 
         </div>
     </section>
 
-    <!-- Khung xem chi tiết báo cáo ẩn (Modal chi tiết được mở khi bấm "Explore project") -->
-    <div id="project-detail-panel" class="hidden fixed inset-0 z-50 bg-[#FAF8F2]/90 backdrop-blur-lg overflow-y-auto px-6 py-12 flex items-center justify-center">
-        <div class="w-full max-w-4xl bg-white rounded-3xl p-8 md:p-12 border border-sage-800/10 shadow-2xl relative">
+    <!-- Khung xem chi tiết báo cáo ẩn (Modal chi tiết) -->
+    <div id="project-detail-panel" class="hidden fixed inset-0 z-50 bg-black/45 backdrop-blur-md overflow-y-auto px-6 py-12 flex items-center justify-center">
+        <div class="w-full max-w-4xl bg-white rounded-3xl p-8 md:p-12 border border-sage-800/10 shadow-2xl relative text-sage-900 scale-95 transition-transform duration-300" id="modal-container">
             <button onclick="closeProjectDetail()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-sage-50 text-sage-900 flex items-center justify-center hover:bg-sage-100 transition-colors">
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times text-sm"></i>
             </button>
             
             <div id="detail-dynamic-content" class="space-y-6">
-                <!-- Nội dung được tải động qua JS từ báo cáo gốc -->
+                <!-- Nội dung nạp động bằng JS -->
             </div>
         </div>
     </div>
 
     <!-- Suy ngẫm (Trang Tổng kết) -->
-    <section id="tong-ket" class="py-24 relative z-10 bg-white">
+    <section id="tong-ket" class="py-24 relative z-20 bg-white">
         <div class="max-w-7xl mx-auto px-6 reveal">
             
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -424,26 +448,26 @@
                 <p class="text-xs text-sage-800 uppercase tracking-widest font-extrabold mt-2">What each project taught me.</p>
             </div>
 
-            <!-- Grid suy ngẫm từ các bài học đúng ảnh mẫu -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-xs text-sage-800">
+            <!-- Thẻ suy ngẫm tương ứng 4 bài học mấu chốt -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-xs text-sage-800 font-medium">
                 <div class="p-6 rounded-2xl bg-sage-50 border border-sage-800/5 relative">
                     <span class="text-3xl title-serif italic text-sage-900 block mb-2">“</span>
-                    <p class="italic">Kỹ năng tổ chức dữ liệu và cấu trúc thư mục học tập chuẩn hoá giúp tôi giải quyết tới 30% áp lực học tập ngoại ngữ.</p>
+                    <p class="italic leading-relaxed">Kỹ năng tổ chức hệ thống cây thư mục khoa học giúp tôi tự động dọn dẹp hơn 30% quỹ thời gian tự học của cá nhân.</p>
                     <span class="absolute bottom-4 right-4 text-emerald-600"><i class="fas fa-seedling"></i></span>
                 </div>
                 <div class="p-6 rounded-2xl bg-peach/30 border border-sage-800/5 relative">
                     <span class="text-3xl title-serif italic text-sage-900 block mb-2">“</span>
-                    <p class="italic">Biết phản biện và chọn lọc nguồn tài liệu có kiểm chứng, không phụ thuộc mù quáng vào các gợi ý thô từ trợ lý ảo.</p>
+                    <p class="italic leading-relaxed">Luôn biết cách phản biện thông tin gợi ý từ AI, trích dẫn học thuật minh bạch và rõ ràng theo chuẩn Harvard.</p>
                     <span class="absolute bottom-4 right-4 text-orange-600"><i class="fas fa-search"></i></span>
                 </div>
                 <div class="p-6 rounded-2xl bg-sky/30 border border-sage-800/5 relative">
                     <span class="text-3xl title-serif italic text-sage-900 block mb-2">“</span>
-                    <p class="italic">Prompting nâng cao không chỉ là kỹ năng ra lệnh, đó là tư duy chia nhỏ vấn đề một cách logic và khoa học.</p>
+                    <p class="italic leading-relaxed">Prompting nâng cao là tư duy hệ thống hóa, chia nhỏ vấn đề theo các lớp bối cảnh, vai trò và quy luật hoạt động.</p>
                     <span class="absolute bottom-4 right-4 text-blue-600"><i class="fas fa-magic"></i></span>
                 </div>
                 <div class="p-6 rounded-2xl bg-violet/30 border border-sage-800/5 relative">
                     <span class="text-3xl title-serif italic text-sage-900 block mb-2">“</span>
-                    <p class="italic">Sử dụng AI có đạo đức chính là cách tự trọng và bảo vệ giá trị học thuật đích thực của bản thân trong kỷ nguyên số.</p>
+                    <p class="italic leading-relaxed">Luôn đảm bảo sử dụng AI có trách nhiệm và giữ gìn danh tiếng học thuật trung thực, tôn trọng sáng tạo cá nhân.</p>
                     <span class="absolute bottom-4 right-4 text-purple-600"><i class="fas fa-shield-halved"></i></span>
                 </div>
             </div>
@@ -451,15 +475,15 @@
         </div>
     </section>
 
-    <!-- Liên hệ & Thông tin bổ sung (About / Contact) -->
-    <section id="lien-he" class="py-24 relative z-10 max-w-7xl mx-auto px-6 reveal">
+    <!-- Liên hệ & Thông tin bổ sung -->
+    <section id="lien-he" class="py-24 relative z-20 max-w-7xl mx-auto px-6 reveal">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            <!-- Left Contact details -->
+            <!-- Left Info -->
             <div class="space-y-6">
                 <h3 class="text-4xl title-serif italic text-sage-900">Hãy cùng kết nối 🌿</h3>
                 <p class="text-xs text-gray-500 leading-relaxed font-medium">
-                    Tôi luôn cởi mở để đón nhận mọi góp ý, cùng thảo luận về các dự án dịch thuật ngôn ngữ học hoặc ứng dụng kỹ thuật số vào đời sống.
+                    Tôi luôn hoan nghênh mọi thư góp ý, đóng góp thảo luận khoa học hoặc các cơ hội trao đổi trong lĩnh vực dịch thuật số.
                 </p>
                 <div class="space-y-4 text-xs font-bold text-sage-800 uppercase tracking-wider">
                     <div class="flex items-center gap-3">
@@ -473,8 +497,8 @@
                 </div>
             </div>
 
-            <!-- Right minimal input box -->
-            <form onsubmit="event.preventDefault(); alert('Thư đã gửi thành công!');" class="space-y-4 text-xs">
+            <!-- Right Form -->
+            <form onsubmit="event.preventDefault(); alert('Tin nhắn đã được gửi thành công!');" class="space-y-4 text-xs">
                 <div class="space-y-1">
                     <input type="text" placeholder="Họ và tên của bạn" required class="w-full bg-white border border-sage-800/10 rounded-xl px-4 py-3 text-sage-900 focus:outline-none focus:border-sage-800 transition-colors">
                 </div>
@@ -482,9 +506,9 @@
                     <input type="email" placeholder="Địa chỉ email liên hệ" required class="w-full bg-white border border-sage-800/10 rounded-xl px-4 py-3 text-sage-900 focus:outline-none focus:border-sage-800 transition-colors">
                 </div>
                 <div class="space-y-1">
-                    <textarea placeholder="Nội dung lời nhắn..." rows="4" required class="w-full bg-white border border-sage-800/10 rounded-xl px-4 py-3 text-sage-900 focus:outline-none focus:border-sage-800 transition-colors resize-none"></textarea>
+                    <textarea placeholder="Lời nhắn chi tiết..." rows="4" required class="w-full bg-white border border-sage-800/10 rounded-xl px-4 py-3 text-sage-900 focus:outline-none focus:border-sage-800 transition-colors resize-none"></textarea>
                 </div>
-                <button type="submit" class="px-6 py-3 bg-sage-900 text-white font-bold rounded-xl hover:opacity-90 transition-opacity uppercase tracking-wider">
+                <button type="submit" class="px-6 py-3.5 bg-sage-900 text-white font-bold rounded-xl hover:opacity-90 transition-opacity uppercase tracking-wider">
                     Gửi tin nhắn liên hệ
                 </button>
             </form>
@@ -492,31 +516,29 @@
         </div>
     </section>
 
-    <!-- Khu vườn hoa cúc dại hoàn chỉnh tượng trưng kết thúc môn học (Footer) -->
-    <footer class="relative bg-sage-100/50 pt-24 pb-12 overflow-hidden z-10 border-t border-sage-800/5">
+    <!-- Thảm cỏ hoạ tiết wild chamomile nở rộ phía dưới chân trang -->
+    <footer class="relative bg-sage-100/40 pt-24 pb-12 overflow-hidden z-10 border-t border-sage-800/5">
         
-        <!-- Hoạ tiết vườn cúc dại bung nở ở chân trang giống Hình 2 -->
-        <div class="absolute bottom-0 left-0 w-full h-[180px] pointer-events-none opacity-95 select-none z-0">
+        <!-- Vẽ mảng cỏ hoa cúc tinh xảo bằng SVG để không bị vỡ ảnh -->
+        <div class="absolute bottom-0 left-0 w-full h-[160px] pointer-events-none opacity-90 select-none z-0">
             <svg class="w-full h-full" viewBox="0 0 1440 200" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Cỏ và nhành hoa -->
-                <path d="M0,200 L1440,200 L1440,150 C1400,160 1350,140 1300,160 C1200,130 1100,150 1000,130 C900,160 800,140 700,150 C600,120 500,140 400,130 C300,150 200,130 100,150 L0,120 Z" fill="#E8F2E7"/>
+                <path d="M0,200 L1440,200 L1440,140 C1400,150 1350,135 1300,150 C1200,125 1100,140 1000,125 C900,150 800,135 700,145 C600,115 500,135 400,125 C300,145 200,125 100,145 L0,115 Z" fill="#E9EFE9"/>
                 
-                <!-- Hoa cúc dại điểm xuyết trên thảm cỏ -->
-                <g transform="translate(150, 140)">
-                    <circle cx="0" cy="0" r="6" fill="#FCE881" stroke="#3D4F41" stroke-width="1.5"/>
-                    <path d="M0,-6 L0,-12 M0,6 L0,12 M-6,0 L-12,0 M6,0 L12,0" stroke="#3D4F41" stroke-width="1.5"/>
+                <g transform="translate(180, 130)">
+                    <circle cx="0" cy="0" r="5" fill="#FCE881" stroke="#3D4F41" stroke-width="1.5"/>
+                    <path d="M0,-5 L0,-10 M0,5 L0,10 M-5,0 L-10,0 M5,0 L10,0" stroke="#3D4F41" stroke-width="1.2"/>
                 </g>
-                <g transform="translate(450, 110)">
-                    <circle cx="0" cy="0" r="6" fill="#FCE881" stroke="#3D4F41" stroke-width="1.5"/>
-                    <path d="M0,-6 L0,-12 M0,6 L0,12 M-6,0 L-12,0 M6,0 L12,0" stroke="#3D4F41" stroke-width="1.5"/>
+                <g transform="translate(480, 115)">
+                    <circle cx="0" cy="0" r="5" fill="#FCE881" stroke="#3D4F41" stroke-width="1.5"/>
+                    <path d="M0,-5 L0,-10 M0,5 L0,10 M-5,0 L-10,0 M5,0 L10,0" stroke="#3D4F41" stroke-width="1.2"/>
                 </g>
-                <g transform="translate(750, 130)">
-                    <circle cx="0" cy="0" r="6" fill="#FCE881" stroke="#3D4F41" stroke-width="1.5"/>
-                    <path d="M0,-6 L0,-12 M0,6 L0,12 M-6,0 L-12,0 M6,0 L12,0" stroke="#3D4F41" stroke-width="1.5"/>
+                <g transform="translate(850, 125)">
+                    <circle cx="0" cy="0" r="5" fill="#FCE881" stroke="#3D4F41" stroke-width="1.5"/>
+                    <path d="M0,-5 L0,-10 M0,5 L0,10 M-5,0 L-10,0 M5,0 L10,0" stroke="#3D4F41" stroke-width="1.2"/>
                 </g>
-                <g transform="translate(1150, 120)">
-                    <circle cx="0" cy="0" r="6" fill="#FCE881" stroke="#3D4F41" stroke-width="1.5"/>
-                    <path d="M0,-6 L0,-12 M0,6 L0,12 M-6,0 L-12,0 M6,0 L12,0" stroke="#3D4F41" stroke-width="1.5"/>
+                <g transform="translate(1200, 120)">
+                    <circle cx="0" cy="0" r="5" fill="#FCE881" stroke="#3D4F41" stroke-width="1.5"/>
+                    <path d="M0,-5 L0,-10 M0,5 L0,10 M-5,0 L-10,0 M5,0 L10,0" stroke="#3D4F41" stroke-width="1.2"/>
                 </g>
             </svg>
         </div>
@@ -525,37 +547,37 @@
             <h4 class="text-3xl md:text-5xl title-serif italic text-sage-900">Your garden is blooming. 🌼</h4>
             <p class="text-xs text-sage-800 uppercase tracking-widest font-extrabold">Thank you for visiting my learning journey.</p>
             
-            <!-- Nút Back to top -->
             <div class="pt-2">
                 <a href="#trang-chu" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sage-800 hover:opacity-75 transition-opacity">
                     Back to top ↑
                 </a>
             </div>
 
-            <div class="pt-8 border-t border-sage-800/5 text-[11px] text-gray-500 space-y-1">
+            <div class="pt-8 border-t border-sage-800/5 text-[11px] text-gray-500 space-y-1 font-medium">
                 <p>&copy; 2026 Nguyễn Thị Phương Thảo — Đại học Ngoại ngữ (ULIS). All rights reserved.</p>
-                <p class="text-[9px] uppercase tracking-wider font-extrabold">Bloom Digital Portfolio — Học phần Nhập môn Công nghệ số</p>
+                <p class="text-[9px] uppercase tracking-wider font-extrabold text-gray-400">Bloom Digital Portfolio — Học phần Nhập môn Công nghệ số</p>
             </div>
         </div>
     </footer>
 
-    <!-- JS xử lý tương tác đặc thù (Nhánh cây sinh trưởng, Cánh hoa cúc rơi, Modal báo cáo) -->
+    <!-- JS xử lý tối ưu (Sinh trưởng dây leo, Rơi cánh hoa, Modal chi tiết) -->
     <script>
-        // 1. Tự động sinh ra các cánh hoa cúc cọ dại rơi tinh tế
+        // 1. Giải pháp tối ưu: Tự động điều phối lượng cánh hoa rơi lơ lửng an toàn
         const petalsContainer = document.getElementById('petals-container');
-        const colors = ['#ffffff', '#fffdf5', '#FAF8F2'];
+        const colors = ['#ffffff', '#fffef4', '#FAF8F5'];
         
         function createPetal() {
-            if (petalsContainer.childElementCount > 25) return; // Giới hạn số lượng
+            // Giới hạn tối đa 20 cánh cùng hiện hữu để tối ưu RAM và tránh giật lag
+            if (petalsContainer.childElementCount > 20) return; 
             const petal = document.createElement('div');
             petal.classList.add('petal');
             
-            // Random kích thước, vị trí, thời gian rơi
-            const size = Math.random() * 12 + 8;
+            const size = Math.random() * 10 + 6;
             petal.style.width = `${size}px`;
-            petal.style.height = `${size * 1.5}px`;
-            petal.style.left = `${Math.random() * 100}vw`;
-            petal.style.animationDuration = `${Math.random() * 8 + 6}s`;
+            petal.style.height = `${size * 1.4}px`;
+            // Giới hạn phạm vi rơi an toàn 95vw để không bị tràn thanh cuộn ngang
+            petal.style.left = `${Math.random() * 95}vw`;
+            petal.style.animationDuration = `${Math.random() * 8 + 7}s`;
             petal.style.background = colors[Math.floor(Math.random() * colors.length)];
             
             petalsContainer.appendChild(petal);
@@ -565,51 +587,62 @@
             }, 14000);
         }
 
-        setInterval(createPetal, 1200);
+        setInterval(createPetal, 1400);
 
-        // 2. Nhánh cây Progress sinh trưởng dựa trên vị trí cuộn trang (Scroll dynamic vine)
+        // 2. Siêu sửa lỗi: Tính toán sinh trưởng dây leo bằng phương pháp đo độ dài nét vẽ thực tế
         const growthVine = document.getElementById('growth-vine');
+        let pathLength = 0;
+
+        if (growthVine) {
+            // Lấy chính xác độ dài nét vẽ của SVG trên thiết bị thực tế
+            pathLength = growthVine.getTotalLength();
+            growthVine.style.strokeDasharray = pathLength;
+            growthVine.style.strokeDashoffset = pathLength;
+        }
+
         window.addEventListener('scroll', () => {
+            if (pathLength === 0) return;
             const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
-            const dashOffset = 1000 - (scrollPercent * 1000);
-            growthVine.style.strokeDashoffset = Math.max(0, Math.min(1000, dashOffset));
+            const dashOffset = pathLength - (scrollPercent * pathLength);
+            // Sát lề an toàn từ 0 đến max length
+            growthVine.style.strokeDashoffset = Math.max(0, Math.min(pathLength, dashOffset));
         });
 
-        // 3. Toàn bộ nội dung báo cáo thực tế được nạp động vào Modal để xem đầy đủ
+        // 3. Toàn bộ nội dung báo cáo chi tiết cho từng chặng Bloom Card
         const projectData = {
             1: `
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-extrabold text-emerald-600 tracking-widest">Giai đoạn gieo hạt (01)</span>
                     <h3 class="text-3xl title-serif text-sage-900 italic">Thao tác cơ bản với Tệp tin & Thư mục</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Trong bài học thực hành đầu tiên, tôi đã làm quen bài bản với hệ thống Windows File Explorer nhằm số hoá tài liệu tự học khoa học. Quy trình gieo hạt này giúp xây dựng tiền đề quản lý chặt chẽ trong suốt 4 năm đại học.</p>
-                    <div class="space-y-2 text-xs text-gray-500">
-                        <p><strong>📂 Cây thư mục chính:</strong> <code>Documents/Tuần Anh - Cá nhân/Tài liệu/ThucHanh_NguyenThiPhuongThao</code></p>
-                        <p><strong>📝 File văn bản quan trọng:</strong> Khởi tạo tệp tin <code>GhiChu.txt</code>, đổi tên thành <code>GhiChuQuanTrong.txt</code>, đưa vào phân mục sâu.</p>
-                        <p><strong>🛠️ Các thao tác chuyên sâu:</strong> Thực hiện sao chép (Copy), di chuyển (Cut), dọn dẹp an toàn và khôi phục (Restore) tệp tin từ Recycle Bin.</p>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">Trong bài học đầu tiên, tôi đã học cách thiết lập nền tảng tổ chức tệp tin số cá nhân trên hệ điều hành Windows một cách khoa học. Đây là "hạt giống" đầu tiên định hình thói quen học tập ngăn nắp.</p>
+                    <div class="space-y-2 text-xs text-gray-500 font-medium">
+                        <p><strong>📂 Thư mục mẫu đã tạo:</strong> <code>Documents/Tuần Anh - Cá nhân/Tài liệu/ThucHanh_NguyenThiPhuongThao</code></p>
+                        <p><strong>📝 File đính kèm:</strong> Sáng tạo tệp tin văn bản <code>GhiChu.txt</code>, đổi tên thành <code>GhiChuQuanTrong.txt</code> và đưa vào phân mục sâu.</p>
+                        <p><strong>🛠️ Các lệnh đã thực hiện:</strong> Copy/Cut & Paste, kiểm tra và dọn dẹp Recycle Bin chuyên nghiệp, khôi phục (Restore) tệp tin an toàn.</p>
                     </div>
                 </div>
             `,
             2: `
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-extrabold text-orange-600 tracking-widest">Giai đoạn mầm xanh (02)</span>
-                    <h3 class="text-3xl title-serif text-sage-900 italic">Tìm kiếm & Đánh giá nguồn thông tin</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Nghiên cứu khoa học đòi hỏi sự chặt chẽ. Tôi đã trực tiếp thực hành tra cứu trên các hệ cơ sở dữ liệu lớn Google Scholar & ScienceDirect để thu hoạch và thẩm định 10 nguồn tin uy tín nhất về trí tuệ nhân tạo đối với ngành Ngôn ngữ và Văn hóa Anh.</p>
-                    <div class="space-y-2 text-xs text-gray-500">
-                        <p><strong>🔍 Phương pháp tìm kiếm:</strong> Áp dụng các toán tử Boolean nâng cao (AND, OR, NOT, filetype:pdf) để tối ưu kết quả.</p>
-                        <p><strong>📊 Thang điểm đánh giá độ tin cậy:</strong> Đánh giá chi tiết dựa trên danh tiếng tác giả (TS. Ngôn ngữ học), cơ quan xuất bản (Oxford Academic, Elsevier Q1, Stanford, UNESCO) và tần suất trích dẫn khoa học thực tế.</p>
-                        <p><strong>📖 Danh mục tài liệu chuẩn mực:</strong> Trích dẫn hoàn chỉnh 10 nguồn tham khảo uy tín dạng Harvard Style.</p>
+                    <h3 class="text-3xl title-serif text-sage-900 italic">Tìm kiếm & Đánh giá nguồn thông tin khoa học</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">Phát triển năng lực nghiên cứu thông tin khoa học thông qua việc chọn lọc và thẩm định kỹ lưỡng 10 nguồn tài liệu về việc ứng dụng AI trong học thuật đối với ngành Ngôn ngữ & Văn hóa Anh.</p>
+                    <div class="space-y-2 text-xs text-gray-500 font-medium">
+                        <p><strong>🔍 Công cụ & Cú pháp:</strong> Tra cứu trên Google Scholar, ScienceDirect bằng các toán tử nâng cao (AND, OR, NOT, filetype:pdf).</p>
+                        <p><strong>📊 Các tiêu chuẩn đánh giá:</strong> Đánh giá chi tiết danh tiếng tác giả (TS. Ngôn ngữ học), độ uy tín của cơ quan phát hành (Oxford Academic, Elsevier Q1, Stanford, UNESCO), số trích dẫn thực tế.</p>
+                        <p><strong>📖 Sản phẩm:</strong> Danh mục tài liệu tham khảo hoàn chỉnh, được định dạng Harvard chuẩn học thuật.</p>
                     </div>
                 </div>
             `,
             3: `
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-extrabold text-blue-600 tracking-widest">Giai đoạn phát triển (03)</span>
-                    <h3 class="text-3xl title-serif text-sage-900 italic">Thiết lập câu lệnh Prompting tối ưu</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Để AI thực sự biến thành một trợ lý ngôn ngữ học chuyên nghiệp, tôi đã nghiên cứu và phát triển phương pháp thiết lập câu lệnh (Prompting) đa tầng có hệ thống và cấu trúc rõ ràng.</p>
-                    <div class="space-y-2 text-xs text-gray-500">
-                        <p><strong>📝 Tác vụ 1:</strong> Tóm tắt tóm lược các báo cáo khoa học dài dòng một cách súc tích.</p>
-                        <p><strong>🧩 Tác vụ 2:</strong> Giải thích trực quan các khái niệm kỹ thuật trừu tượng cao như Không gian Nhúng (Embedding Space) và Khoảng cách Cosine (Cosine Similarity).</p>
-                        <p><strong>❓ Tác vụ 3:</strong> Tạo lập bộ ngân hàng câu hỏi trắc nghiệm & tự luận kèm giải thích ngắn gọn phục vụ tự ôn tập học phần hiệu quả.</p>
+                    <h3 class="text-3xl title-serif text-sage-900 italic">Xây dựng câu lệnh Prompting thông minh</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">Tập trung nghiên cứu phương thức giao tiếp hiệu quả nhất với Mô hình ngôn ngữ lớn để biến AI thành một "trợ lý riêng" đắc lực trong suốt học kỳ.</p>
+                    <div class="space-y-2 text-xs text-gray-500 font-medium">
+                        <p><strong>📝 Tác vụ tóm tắt:</strong> Sử dụng Prompt cải tiến để tóm lược văn bản nghiên cứu chuyên ngành Anh ngữ ngắn gọn dưới 200 từ.</p>
+                        <p><strong>🧩 Tác vụ giải nghĩa:</strong> Giải thích sinh động Không gian Nhúng (Embedding Space) và Khoảng cách Cosine (Cosine Similarity) cho đối tượng mới bắt đầu học.</p>
+                        <p><strong>❓ Tác vụ tự luyện:</strong> Thiết lập bộ 10 câu hỏi tự ôn tập (5 trắc nghiệm, 5 tự luận ngắn) kèm theo đáp án gợi ý chi tiết từ AI.</p>
                     </div>
                 </div>
             `,
@@ -617,51 +650,67 @@
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-extrabold text-red-600 tracking-widest">Giai đoạn chớm nở (04)</span>
                     <h3 class="text-3xl title-serif text-sage-900 italic">Quản lý dự án hợp tác trực tuyến</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Cùng nhóm bạn phối hợp ăn ý từ xa để xây dựng đề tài trình chiếu "Ứng dụng Trí tuệ nhân tạo trong học tập và đời sống". Qua đó rèn luyện phong thái làm việc số chuyên nghiệp.</p>
-                    <div class="space-y-2 text-xs text-gray-500">
-                        <p><strong>🛠️ Tổ hợp công cụ số hỗ trợ:</strong> Trello (giao và bám sát tiến trình công việc), Google Docs (đồng soạn thảo kịch bản trực tiếp), Google Drive (lưu kho dữ liệu chung) và Discord (họp nhóm trực tuyến).</p>
-                        <p><strong>📊 Ưu điểm:</strong> Đồng bộ tức thì dữ liệu, dễ dàng trao đổi ý kiến đóng góp mọi lúc mọi nơi.</p>
-                        <p><strong>⚠️ Khó khăn & Giải pháp:</strong> Khắc phục bất đồng về lịch học của các thành viên bằng cách lập bảng phân rã nhiệm vụ và thời hạn (Deadline) cực kỳ chi tiết trên Trello.</p>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">Đồng hành cùng nhóm bạn thiết kế đề tài thuyết trình "Ứng dụng Trí tuệ nhân tạo trong học tập và đời sống", qua đó rèn luyện cách phối hợp nhóm chuyên nghiệp từ xa.</p>
+                    <div class="space-y-2 text-xs text-gray-500 font-medium">
+                        <p><strong>🛠️ Tổ hợp công cụ:</strong> Trello (bản đồ quản trị tiến độ công việc), Google Docs (đồng soạn thảo kịch bản trực tiếp), Google Drive (lưu kho dữ liệu chung) và Discord (họp nhóm trực tuyến).</p>
+                        <p><strong>📊 Ưu điểm nhận diện:</strong> Đồng bộ nhanh chóng, lưu trữ lịch sử sửa đổi rõ ràng, dễ dàng trao đổi ý kiến đóng góp mọi lúc mọi nơi.</p>
+                        <p><strong>⚠️ Khó khăn & Giải pháp:</strong> Khắc phục bất đồng thời gian bằng cách phân chia đầu việc chi tiết (To Do -> Doing -> Done) rõ ràng trên bảng Trello.</p>
                     </div>
                 </div>
             `,
             5: `
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-extrabold text-purple-600 tracking-widest">Giai đoạn rực rỡ (05)</span>
-                    <h3 class="text-3xl title-serif text-sage-900 italic">Sáng tạo nội dung giáo dục với AI</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Xây dựng quy trình khép kín đa công cụ để kiến tạo một ấn phẩm Infographic mang đậm dấu ấn cá nhân về vai trò của trí tuệ nhân tạo trong giáo dục đại học.</p>
-                    <div class="space-y-2 text-xs text-gray-500">
-                        <p><strong>🤖 Phân vai nhiệm vụ:</strong> ChatGPT đóng vai trò nghiên cứu nội dung, biên tập câu cú; DALL-E chịu trách nhiệm kiến tạo hoa văn hoa cúc học thuật độc bản; Canva AI hoàn thiện trực quan hóa biểu tượng.</p>
-                        <p><strong>🎨 Bảng màu (Palette) áp dụng:</strong> Trắng kem dịu mắt, sắc tím phấn và xanh lá dại sang trọng, mang phong cách tối giản Apple x Pinterest.</p>
-                        <p><strong>🛡️ Liêm chính sáng tạo:</strong> Luôn tinh chỉnh và biên tập lại ngôn từ của bản thân thay vì phó thác cho kết quả thô của máy tính.</p>
+                    <h3 class="text-3xl title-serif text-sage-900 italic">Sáng tạo nội dung với AI tạo sinh</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">Thiết lập quy trình khép kín kết hợp sức mạnh đa dạng của ChatGPT, DALL-E và Canva AI để kiến tạo ấn phẩm Infographic trực quan xuất sắc.</p>
+                    <div class="space-y-2 text-xs text-gray-500 font-medium">
+                        <p><strong>🤖 Phân vai nhiệm vụ:</strong> ChatGPT đóng vai trò nghiên cứu nội dung; DALL-E chịu trách nhiệm kiến tạo hoa văn hoa cúc dại; Canva AI hỗ trợ sắp xếp các thành phần đồ họa dẹt.</p>
+                        <p><strong>🎨 Bảng màu (Palette) áp dụng:</strong> Sắc trắng kem kết hợp tím phấn thanh lịch, tinh tế mang đậm hơi hướng Muji x Pinterest.</p>
+                        <p><strong>🛡️ Cam kết đạo đức:</strong> Kiểm chứng lại thông tin, không phụ thuộc hoàn toàn vào kết quả thô của trợ lý ảo.</p>
                     </div>
                 </div>
             `,
             6: `
                 <div class="space-y-4">
                     <span class="text-xs uppercase font-extrabold text-green-700 tracking-widest">Giai đoạn khu vườn hoàn chỉnh (06)</span>
-                    <h3 class="text-3xl title-serif text-sage-900 italic">Khai thác AI an toàn & Liêm chính</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Bản báo cáo chuyên sâu và sơ đồ tư duy phân tích ranh giới sử dụng công nghệ nhân tạo tại ULIS. Hướng tới xây dựng một thế hệ sinh viên sử dụng AI thông minh, minh bạch và có trách nhiệm.</p>
-                    <div class="space-y-2 text-xs text-gray-500">
-                        <p><strong>📌 Ranh giới rõ ràng:</strong> Được phép tham khảo ý tưởng sơ bộ, brainstorm đề mục viết; Cấm kỵ nộp nguyên văn, chế tạo citation giả mạo hoặc lạm dụng AI làm thay hoàn toàn tư duy độc lập.</p>
-                        <p><strong>🛡️ 6 Nguyên tắc đạo đức vàng:</strong> Sử dụng để bổ trợ, luôn đối chiếu tài liệu gốc, minh bạch nguồn gốc, không sao chép nguyên văn, bảo mật dữ liệu riêng tư và luôn duy trì tinh thần tự học cốt lõi.</p>
+                    <h3 class="text-3xl title-serif text-sage-900 italic">Khai thác AI an toàn & Liêm chính học thuật</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">Bản nghiên cứu thực chứng và sơ đồ tư duy phân tích ranh giới sử dụng công nghệ nhân tạo lành mạnh tại môi trường đại học (ULIS).</p>
+                    <div class="space-y-2 text-xs text-gray-500 font-medium">
+                        <p><strong>📌 Ranh giới rõ ràng:</strong> Được phép dùng để gợi mở ý tưởng ban đầu, sửa lỗi ngữ pháp văn phong; Tuyệt đối cấm kỵ hành vi nộp bài thô từ AI, sử dụng AI gian lận thi cử hoặc bịa đặt số liệu giả.</p>
+                        <p><strong>🛡️ 6 Nguyên tắc vàng:</strong> AI chỉ bổ trợ, đối chiếu kiểm chứng tài liệu gốc, minh bạch nguồn gốc, viết lại bằng ngôn ngữ cá nhân, bảo vệ thông tin riêng tư và rèn luyện kỹ năng tự học cốt lõi.</p>
                     </div>
                 </div>
             `
         };
 
-        function switchProjectAndScroll(index) {
+        function openProjectModal(index) {
             const panel = document.getElementById('project-detail-panel');
+            const container = document.getElementById('modal-container');
             const contentArea = document.getElementById('detail-dynamic-content');
             
             contentArea.innerHTML = projectData[index];
             panel.classList.remove('hidden');
+            
+            // Hoạt cảnh scale-up mượt mà của modal
+            setTimeout(() => {
+                container.classList.remove('scale-95');
+                container.classList.add('scale-100');
+            }, 10);
+            
             document.body.style.overflow = 'hidden'; // Khóa cuộn trang chính
         }
 
         function closeProjectDetail() {
             const panel = document.getElementById('project-detail-panel');
-            panel.classList.add('hidden');
+            const container = document.getElementById('modal-container');
+            
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+            
+            setTimeout(() => {
+                panel.classList.add('hidden');
+            }, 200);
+            
             document.body.style.overflow = 'auto'; // Mở lại cuộn trang
         }
 
@@ -679,7 +728,7 @@
 
         revealElements.forEach(el => observer.observe(el));
 
-        // Tự động active hero khi load xong
+        // Tự động kích hoạt hiệu ứng cuộn mượt cho trang chủ khi load xong
         window.addEventListener('load', () => {
             document.getElementById('trang-chu').classList.add('active');
         });
